@@ -1,5 +1,5 @@
 /**
- * Contador regressivo de dias
+ * Calcula o timestamp restante de agora até uma determinada data, podendo retornar o resultado em diferentes formatos
  */
 export default class Countdown {
 
@@ -15,7 +15,7 @@ export default class Countdown {
     /**
      * @returns {Date} Data atual
      */
-    get _actuaDate() {
+    get _actualDate() {
         return new Date();
     }
 
@@ -29,44 +29,44 @@ export default class Countdown {
     /**
      * @returns {number} Retorna a diferença entre a data atual e a data alvo (em milissegundos)
      */
-    get _timestampDiff() {
-        return this._targetDate.getTime() - this._actuaDate.getTime();
+    get timestamp() {
+        return this._targetDate.getTime() - this._actualDate.getTime();
     }
 
     /**
-     * @returns {number} Retorna a diferença entre a data atual e a data alvo (em dias)
+     * @returns {number} Retorna o timestamp em dias
      */
     get days() {
-        return Math.floor(this._timestampDiff / (24*60*60*1000));
+        return Math.floor(this.timestamp / (24*60*60*1000));
     }
 
     /**
-     * @returns {number} Retorna a diferença entre a data atual e a data alvo (em horas)
+     * @returns {number} Retorna o timestamp em horas
      */
     get hours() {
-        return Math.floor(this._timestampDiff / (60*60*1000));
+        return Math.floor(this.timestamp / (60*60*1000));
     }
 
     /**
-     * @returns {number} Retorna a diferença entre a data atual e a data alvo (em minutos)
+     * @returns {number} Retorna o timestamp em minutos
      */
     get minutes() {
-        return Math.floor(this._timestampDiff / (60*1000));
+        return Math.floor(this.timestamp / (60*1000));
     }
 
     /**
-     * @returns {number} Retorna a diferença entre a data atual e a data alvo (em segundos)
+     * @returns {number} Retorna o timestamp em segundos
      */
     get seconds() {
-        return Math.floor(this._timestampDiff / 1000);
+        return Math.floor(this.timestamp / 1000);
     }
 
     /**
-     * @returns {Object} Retorna um objeto com a diferença completa entre a data atual e a data alvo (dias, horas, minutos, segundos)
+     * @returns {Object} Converte o timestamp em dias, horas, minutos e segundos
      */
-    get fullDiff() {
-        const days = this.days;
-        const hours = this.hours % 24;
+    toDays() {
+        const days    = this.days;
+        const hours   = this.hours % 24;
         const minutes = this.minutes % 60;
         const seconds = this.seconds % 60;
 
@@ -77,4 +77,56 @@ export default class Countdown {
             seconds
         };
     }
+
+    /**
+     * @returns {Object} Converte o timestamp em horas, minutos e segundos
+     */
+    toHours() {
+        const days    = 0;
+        const hours   = this.hours;
+        const minutes = this.minutes % 60;
+        const seconds = this.seconds % 60;
+
+        return {
+            days,
+            hours,
+            minutes,
+            seconds
+        };
+    }
+
+    /**
+     * @returns {Object} Converte o timestamp em minutos e segundos
+     */
+    toMinutes() {
+        const days    = 0;
+        const hours   = 0;
+        const minutes = this.minutes
+        const seconds = this.seconds % 60;
+
+        return {
+            days,
+            hours,
+            minutes,
+            seconds
+        };
+    }
+
+    /**
+     * @returns {Object} Converte o timestamp em segundos
+     */
+    toSeconds() {
+        const days    = 0;
+        const hours   = 0;
+        const minutes = 0;
+        const seconds = this.seconds;
+
+        return {
+            days,
+            hours,
+            minutes,
+            seconds
+        };
+    }
+
 }

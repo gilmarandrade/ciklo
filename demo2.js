@@ -32,7 +32,7 @@ setInterval( () => {
     updateCounterView(counterHours, time.hours);
     updateCounterView(counterDays, time.days);
     
-    // console.log( `${time.days}days ${time.hours}h ${time.minutes}m ${time.seconds}s`);
+    // console.log( `${time.days}days ${time.hours}h ${time.minutes}m ${time.seconds}s `, countdown.timestamp);
 }, 1000);
 
 /**

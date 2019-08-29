@@ -8,8 +8,20 @@ export default class Countdown {
      * @param {String} targetDate Data futura que serve de alvo para o contador regressivo
      */
     constructor(targetDate) {
-        this.targetDate = targetDate;
+        if(this.isValidDate(new Date(targetDate)) ){
+            this.targetDate = targetDate;
+        } else {
+            this.targetDate = this._actualDate;
+        }
         return this;
+    }
+
+    /**
+     * 
+     * @param {Date} d verifica se a data é válida
+     */
+    isValidDate(d) {
+        return d instanceof Date && !isNaN(d);
     }
 
     /**
@@ -30,6 +42,7 @@ export default class Countdown {
      * @returns {number} Retorna a diferença entre a data atual e a data alvo (em milissegundos)
      */
     get timestamp() {
+        //console.log(this._targetDate.getTime() - this._actualDate.getTime());
         return this._targetDate.getTime() - this._actualDate.getTime();
     }
 

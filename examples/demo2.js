@@ -1,4 +1,4 @@
-import Countdown from '../modules/countdown.js';
+import Timer from '../modules/timer.js';
 
 //ler os parâmetros na query string e criar um array associativo
 var urlParams;
@@ -15,12 +15,18 @@ var urlParams;
 })();
 
 //inicializa o contador com a data recebina na query string, através dp parâmetro targetDate
-const countdown = new Countdown(urlParams.targetDate);//23 December 2019 23:59:59 GMT-0300
+const countdown = new Timer(urlParams.targetDate);//25 December 2019 00:00:00 GMT-0300
 
-const counterSeconds = document.querySelector('#countdown-seconds');
-const counterMinutes = document.querySelector('#countdown-minutes');
-const counterHours = document.querySelector('#countdown-hours');
-const counterDays = document.querySelector('#countdown-days');
+const counterContainer = document.querySelector('#timer');
+const counterSeconds = document.querySelector('#timer .countdown-seconds');
+const counterMinutes = document.querySelector('#timer .countdown-minutes');
+const counterHours = document.querySelector('#timer .countdown-hours');
+const counterDays = document.querySelector('#timer .countdown-days');
+
+if(countdown._actualDate.getTime() < countdown._targetDate.getTime()) {
+    //timer regressivo
+    counterContainer.classList.add('countdown__regressive');
+}
 
 /**
  * Atualiza cada campo do contador (dia, hora, minuto e segundo) a cada segundo

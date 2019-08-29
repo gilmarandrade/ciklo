@@ -1,6 +1,6 @@
-import Countdown from './modules/countdown.js';
+import Timer from './modules/timer.js';
 
-const tempoParaONatal = new Countdown('23 December 2019 23:59:59 GMT-0300');
+const tempoParaONatal = new Timer('25 December 2019 00:00:00 GMT-0300');
 
 const countdowDisplayMilliseconds = document.querySelector('#countdowDisplayMilliseconds');
 const countdowDisplaySeconds = document.querySelector('#countdowDisplaySeconds');

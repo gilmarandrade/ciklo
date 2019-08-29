@@ -1,11 +1,14 @@
 /**
- * Calcula o timestamp passado de uma data no passado até agora, podendo retornar o resultado em diferentes formatos
+ * Calcula a diferença entre uma data alvo qualquer e a data atual.
+ * 
+ * A data alvo pode ser uma data no passado ou futuro.
+ * Pode retornar o resultado em diferentes formatos.
  */
 export default class Timer {
 
     /**
      * Recebe uma string em qualquer formato compativel com o objeto Date do javascript
-     * @param {String} targetDate Data passada que serve de referência para o contador
+     * @param {String} targetDate Data alvo que serve de referência
      */
     constructor(targetDate) {
         if(this.isValidDate(new Date(targetDate)) ){
@@ -32,18 +35,17 @@ export default class Timer {
     }
 
     /**
-     * @returns {Date} Data alvo
+     * @returns {Date} Data alvo (pode ser uma data no passado ou futuro)
      */
     get _targetDate() {
         return new Date(this.targetDate);
     }
 
     /**
-     * @returns {number} Retorna a diferença entre a data atual e a data alvo (em milissegundos)
+     * @returns {number} Retorna o módulo da diferença entre a data atual e a data alvo (em milissegundos)
      */
     get timestamp() {
-        console.log(this._targetDate.getTime() - this._actualDate.getTime() , this._actualDate.getTime() - this._targetDate.getTime());
-        return this._actualDate.getTime() - this._targetDate.getTime();
+        return Math.abs(this._actualDate.getTime() - this._targetDate.getTime());
     }
 
     /**
@@ -141,5 +143,4 @@ export default class Timer {
             seconds
         };
     }
-
 }

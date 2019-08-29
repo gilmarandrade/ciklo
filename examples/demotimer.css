@@ -1,6 +1,11 @@
 body {
     font-family: monospace;
 }
+
+section {
+    margin: 50px;
+}
+
 .countdown {
     /* background: red; */
     display: flex;
@@ -41,18 +46,20 @@ body {
     transform: translateY(0px);
 }
 
-.countdown__reverse .countdown-number {
-    flex-direction: column;
-}
-
-
 .countdown-number.animate {
     transform: translateY(-100px);
-    /* transition: transform .9s ease-out; */
-    transition: transform .95s linear;
+    transition: transform .9s ease-out;
+    /* transition: transform .95s linear; */
 }
 
+.countdown__regressive .countdown-number {
+    flex-direction: column;
+    transform: translateY(-100px);
+}
 
+.countdown__regressive .countdown-number.animate {
+    transform: translateY(0px);
+}
 
 .countdown-number span:first-child {
     content: "00";

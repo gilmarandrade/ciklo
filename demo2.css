@@ -8,7 +8,7 @@ body {
 
 .countdown-box {
     /* background: blue; */
-    width: 100px;
+    min-width: 100px;
     text-align: center;
     position: relative;
 }
@@ -27,15 +27,13 @@ body {
 
 .countdown-track {
     font-size: 85px;
-    width: 100px;
+    min-width: 100px;
     height: 100px;
     /* background: green; */
-    position: relative;
     overflow: hidden;
 }
 
 .countdown-number {
-    position: absolute;
     display: flex;
     flex-direction: column;
     top: 0px;
@@ -53,14 +51,14 @@ body {
 
 .countdown-number span:first-child {
     content: "00";
-    width: 100px;
+    min-width: 100px;
     height: 100px;
     /* background: gray; */
 }
 
 .countdown-number span:last-child {
     content: "02";
-    width: 100px;
+    min-width: 100px;
     height: 100px;
     /* background: rgb(212, 33, 33); */
 }

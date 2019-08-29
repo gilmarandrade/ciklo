@@ -1,4 +1,4 @@
-import Countdown from './countdown.js';
+import Countdown from './modules/countdown.js';
 
 const tempoParaONatal = new Countdown('23 December 2019 23:59:59 GMT-0300');
 

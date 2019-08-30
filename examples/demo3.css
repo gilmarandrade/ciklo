@@ -1,5 +1,10 @@
 body {
-    font-family: monospace;
+    font-family: 'Major Mono Display', monospace;
+    /* font-family: 'Roboto Mono', monospace;   */
+    background-image: linear-gradient(to bottom right, #000000bb, #000000bb), url('./alex-perez-AIfbUyzhKz0-unsplash.jpg');
+    background-size: cover;
+    background-position: top center;
+    color: white;
 }
 
 section {
@@ -74,7 +79,7 @@ section {
 }
 
 .countdown-label {
-    font-family: 12px;
+    font-size: 12px;
 }
 
 .countdown.ended {

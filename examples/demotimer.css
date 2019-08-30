@@ -78,3 +78,8 @@ section {
 .countdown-label {
     font-family: 12px;
 }
+
+.countdown.ended {
+    transition: color .95s ease-out;
+    color: red;
+}

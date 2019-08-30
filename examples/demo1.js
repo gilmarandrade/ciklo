@@ -41,7 +41,6 @@ function initRegressiveTimer(){
         updateCounterView(counterHours, time.hours);
         updateCounterView(counterDays, time.days);
         
-        //console.log(progressiveTimer.seconds, regressiveTimer.seconds);
         // console.log( `${time.days}days ${time.hours}h ${time.minutes}m ${time.seconds}s `, countdown.timestamp);
     }, 1000);
 }

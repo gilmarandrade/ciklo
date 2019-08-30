@@ -25,21 +25,50 @@ const counterDays = document.querySelector('#timer .countdown-days');
 
 if(countdown._actualDate.getTime() < countdown._targetDate.getTime()) {
     //timer regressivo
-    counterContainer.classList.add('countdown__regressive');
+    initRegressiveTimer();
+} else {
+    //timer progressivo
+    initProgressiveTimer();
 }
 
 /**
+ * Timer progressivo
  * Atualiza cada campo do contador (dia, hora, minuto e segundo) a cada segundo
  */
-setInterval( () => {
-    const time = countdown.toDays();
-    updateCounterView(counterSeconds, time.seconds);
-    updateCounterView(counterMinutes, time.minutes);
-    updateCounterView(counterHours, time.hours);
-    updateCounterView(counterDays, time.days);
-    
-    // console.log( `${time.days}days ${time.hours}h ${time.minutes}m ${time.seconds}s `, countdown.timestamp);
-}, 1000);
+function initProgressiveTimer() {
+    setInterval( () => {
+        const time = countdown.toDays();
+        updateCounterView(counterSeconds, time.seconds);
+        updateCounterView(counterMinutes, time.minutes);
+        updateCounterView(counterHours, time.hours);
+        updateCounterView(counterDays, time.days);
+        
+        // console.log( `${time.days}days ${time.hours}h ${time.minutes}m ${time.seconds}s `, countdown.timestamp);
+    }, 1000);
+}
+
+/**
+ * Timer regressivo
+ * Atualiza cada campo do contador (dia, hora, minuto e segundo) a cada segundo
+ */
+function initRegressiveTimer() {
+    counterContainer.classList.add('countdown__regressive');
+
+    const interval = setInterval( () => {
+        const time = countdown.toDays();
+        updateCounterView(counterSeconds, time.seconds);
+        updateCounterView(counterMinutes, time.minutes);
+        updateCounterView(counterHours, time.hours);
+        updateCounterView(counterDays, time.days);
+        
+        if(countdown.timestamp < 1000) {//fim do tempo
+            counterContainer.classList.add('ended');
+            //comente essa linha para que o timer continue a contagem de forma negativa (como um timer progressivo)
+            //clearInterval(interval);
+        }
+        //console.log( `${time.days}days ${time.hours}h ${time.minutes}m ${time.seconds}s `, countdown.timestamp);
+    }, 1000);
+}
 
 /**
  * Caso seja necessário, atualiza a tela com os novos dados do contador

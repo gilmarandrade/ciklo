@@ -1,7 +1,7 @@
 body {
     font-family: 'Major Mono Display', monospace;
     /* font-family: 'Roboto Mono', monospace;   */
-    background-image: linear-gradient(to bottom right, #000000bb, #000000bb), url('./alex-perez-AIfbUyzhKz0-unsplash.jpg');
+    background-image: linear-gradient(to bottom right, #00000099, #00000099), url('./brooke-campbell-Rw2-Y0nSIKQ-unsplash.jpg');
     background-size: cover;
     background-position: top center;
     color: white;
@@ -19,7 +19,7 @@ section {
 
 .timeline-track {
     /* background: red; */
-    background-color: #1a1a1a;
+    background-color: #424242;
     width: 100%;
     position: relative;
     height: 20px;

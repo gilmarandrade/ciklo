@@ -53,7 +53,7 @@ section {
     animation: animate-stripes 2s linear infinite;
 }
 
-.ending .timeline-bar.stripes {
+.ended .timeline-bar.stripes {
     background: rgb(60, 0, 128);
     background-size: 30px 30px;
     background-image: linear-gradient(
@@ -90,7 +90,8 @@ section {
 .timeline-end {
     position: absolute;
     right: 0;
-    margin-top: 10px;font-size: 12px;
+    margin-top: 10px;
+    font-size: 12px;
 }
 
 .timeelapsed-tooltip {
@@ -105,17 +106,9 @@ section {
     font-size: 12px;
 }
 
-.timeelapsed-tooltip .timeline-dayspassed {
+.timeelapsed-tooltip .timeline-days {
     font-size: 20px;
     line-height: 5px;
-}
-
-.timeelapsed-tooltip .timeline-timestamp::before {
-    content: "{";
-}
-
-.timeelapsed-tooltip .timeline-timestamp::after {
-    content: "}";
 }
 
 .timeleft-tooltip {
@@ -129,15 +122,28 @@ section {
     font-size: 12px;
 }
 
-.timeleft-tooltip .timeline-dayspassed {
+.timeleft-tooltip .timeline-days {
     font-size: 20px;
     line-height: 5px;
 }
 
-.timeleft-tooltip .timeline-timestamp::before {
-    content: "{";
+.timeline-tooltip-left .timeelapsed-tooltip {
+    right: -210px;
+    border-right: 0;
+    border-left: 1px solid #fff;
 }
 
-.timeleft-tooltip .timeline-timestamp::after {
-    content: "}";
+.timeline-tooltip-left .timeleft-tooltip {
+
+    right: -440px;
+}
+
+.timeline-tooltip-right .timeelapsed-tooltip {
+    right: 210px;
+    border-right: 0;
+}
+
+.timeline-tooltip-right .timeleft-tooltip {
+    right: 0;
+    border-right: 1px solid #fff;
 }

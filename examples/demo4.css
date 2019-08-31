@@ -1,0 +1,143 @@
+body {
+    font-family: 'Major Mono Display', monospace;
+    /* font-family: 'Roboto Mono', monospace;   */
+    background-image: linear-gradient(to bottom right, #000000bb, #000000bb), url('./alex-perez-AIfbUyzhKz0-unsplash.jpg');
+    background-size: cover;
+    background-position: top center;
+    color: white;
+}
+
+section {
+    margin: 50px;
+}
+
+.timeline {
+    position: relative;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.timeline-track {
+    /* background: red; */
+    background-color: #1a1a1a;
+    width: 100%;
+    position: relative;
+    height: 20px;
+
+    /* overflow: hidden; */
+}
+
+.timeline-bar {
+    transition: width 5s ease-out;
+    background: rgb(2, 128, 0);
+    width: 0%;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 8px 0 rgba(4, 223, 0, 0.2), 0 6px 20px 0 rgba(4, 223, 0, 0.19);
+}
+
+.timeline-bar.stripes {
+    background-size: 30px 30px;
+    background-image: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, .15) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, .15) 50%,
+        rgba(255, 255, 255, .15) 75%,
+        transparent 75%,
+        transparent
+    );
+    animation: animate-stripes 2s linear infinite;
+}
+
+.ending .timeline-bar.stripes {
+    background: rgb(60, 0, 128);
+    background-size: 30px 30px;
+    background-image: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, .15) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, .15) 50%,
+        rgba(255, 255, 255, .15) 75%,
+        transparent 75%,
+        transparent
+    );
+    box-shadow: 0 4px 8px 0 rgba(132, 0, 255, 0.2), 0 6px 20px 0 rgba(132, 0, 255, 0.19);
+    animation: animate-stripes .8s linear infinite;
+}
+
+@keyframes animate-stripes {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 60px 0;
+    }
+}
+
+.timeline-start {
+    position: absolute;
+    left: 0;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.timeline-end {
+    position: absolute;
+    right: 0;
+    margin-top: 10px;font-size: 12px;
+}
+
+.timeelapsed-tooltip {
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    text-align: right;
+    width: 200px;
+    border-right: 1px solid #fff;
+    padding-right: 10px;
+    padding-bottom: 40px;
+    font-size: 12px;
+}
+
+.timeelapsed-tooltip .timeline-dayspassed {
+    font-size: 20px;
+    line-height: 5px;
+}
+
+.timeelapsed-tooltip .timeline-timestamp::before {
+    content: "{";
+}
+
+.timeelapsed-tooltip .timeline-timestamp::after {
+    content: "}";
+}
+
+.timeleft-tooltip {
+    position: absolute;
+    right: -210px;
+    bottom: 0px;
+    text-align: left;
+    width: 200px;
+    padding-left: 10px;
+    padding-bottom: 40px;
+    font-size: 12px;
+}
+
+.timeleft-tooltip .timeline-dayspassed {
+    font-size: 20px;
+    line-height: 5px;
+}
+
+.timeleft-tooltip .timeline-timestamp::before {
+    content: "{";
+}
+
+.timeleft-tooltip .timeline-timestamp::after {
+    content: "}";
+}

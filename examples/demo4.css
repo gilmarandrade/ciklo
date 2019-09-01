@@ -94,16 +94,21 @@ section {
     font-size: 12px;
 }
 
-.timeelapsed-tooltip {
+.timeline-tooltip {/*TODO a posição do tooltip não está responsiva*/
     position: absolute;
-    right: 0;
+    display: flex;
+    right: 0%;
     bottom: 0px;
+    flex-wrap: nowrap;
+}
+
+.timeelapsed-tooltip {
     text-align: right;
-    width: 200px;
-    border-right: 1px solid #fff;
-    padding-right: 10px;
-    padding-bottom: 40px;
+    padding: 0px 10px;
     font-size: 12px;
+    flex-grow: 1;
+    border-right: 1px solid #fff;
+    padding-bottom: 30px;
 }
 
 .timeelapsed-tooltip .timeline-days {
@@ -113,37 +118,15 @@ section {
 
 .timeleft-tooltip {
     position: absolute;
-    right: -210px;
-    bottom: 0px;
     text-align: left;
-    width: 200px;
-    padding-left: 10px;
-    padding-bottom: 40px;
+    padding: 0px 10px;
     font-size: 12px;
+    flex-grow: 1;
+    right: -108%;
+    padding-bottom: 30px;
 }
 
 .timeleft-tooltip .timeline-days {
     font-size: 20px;
     line-height: 5px;
-}
-
-.timeline-tooltip-left .timeelapsed-tooltip {
-    right: -210px;
-    border-right: 0;
-    border-left: 1px solid #fff;
-}
-
-.timeline-tooltip-left .timeleft-tooltip {
-
-    right: -440px;
-}
-
-.timeline-tooltip-right .timeelapsed-tooltip {
-    right: 210px;
-    border-right: 0;
-}
-
-.timeline-tooltip-right .timeleft-tooltip {
-    right: 0;
-    border-right: 1px solid #fff;
 }

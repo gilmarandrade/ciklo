@@ -60,26 +60,24 @@ function updateTimelineView(counterContainer, elapsedCountdown, leftCountdown) {
     if(leftCountdown.targetDate.getTime() < leftCountdown.actualDate.getTime()){//data final já passou, ou tempo esgotado
         console.log('data final ja passou / tempo esgotado!');
         counterContainer.classList.add('ended');
-        counterContainer.classList.remove('timeline-tooltip-left');
-        counterContainer.classList.add('timeline-tooltip-right');
-        counterContainer.querySelector('.timeline-bar').style.width = '100%';
         counterContainer.querySelector('.timeelapsed-tooltip .timeline-percent').innerHTML = '100.0000000000000000%';
         counterContainer.querySelector('.timeleft-tooltip .timeline-percent').innerHTML = '-0.0000000000000000%';
         const elapsed = Timer.dateDiff(leftCountdown.targetDate, elapsedCountdown.targetDate).toDays();
         counterContainer.querySelector('.timeelapsed-tooltip .timeline-days').innerHTML =  elapsed.days + 'd ' + elapsed.hours + ':' + elapsed.minutes + ':' + elapsed.seconds;
         counterContainer.querySelector('.timeleft-tooltip .timeline-days').innerHTML =  '-0d';
+        counterContainer.querySelector('.timeline-bar').style.width = '100%';
         return false;
     }
     
     if(elapsedCountdown.actualDate.getTime() < elapsedCountdown.targetDate.getTime()){//data inicial ainda não chegou
         console.log('data inicial não chegou');
         counterContainer.classList.add('ended');
-        counterContainer.querySelector('.timeline-bar').style.width = '0%';
         counterContainer.querySelector('.timeelapsed-tooltip .timeline-percent').innerHTML = '0.0000000000000000%';
         counterContainer.querySelector('.timeleft-tooltip .timeline-percent').innerHTML = '-100.0000000000000000%';
         counterContainer.querySelector('.timeelapsed-tooltip .timeline-days').innerHTML = '0d';
         const left = Timer.dateDiff(leftCountdown.targetDate, elapsedCountdown.targetDate).toDays();
         counterContainer.querySelector('.timeleft-tooltip .timeline-days').innerHTML =  '-' + left.days + 'd ' + left.hours + ':' + left.minutes + ':' + left.seconds;
+        counterContainer.querySelector('.timeline-bar').style.width = '0%';
         return false;
     }
 
@@ -90,26 +88,11 @@ function updateTimelineView(counterContainer, elapsedCountdown, leftCountdown) {
     elapsed = elapsedCountdown.timestamp.toDays();
     left = leftCountdown.timestamp.toDays();
     
-    counterContainer.querySelector('.timeline-bar').style.width = percentage.toFixed(2) + '%';//TODO animar a porcentagem  e o número quando a página carregar pela primeira vez
     counterContainer.querySelector('.timeelapsed-tooltip .timeline-percent').innerHTML = percentage + '%';
     counterContainer.querySelector('.timeleft-tooltip .timeline-percent').innerHTML = '-' + (100 - percentage) + '%';
     counterContainer.querySelector('.timeelapsed-tooltip .timeline-days').innerHTML = elapsed.days + 'd ' + elapsed.hours + ':' + elapsed.minutes + ':' + elapsed.seconds;
     counterContainer.querySelector('.timeleft-tooltip .timeline-days').innerHTML =  '-' + left.days + 'd ' + left.hours + ':' + left.minutes + ':' + left.seconds;
-
-    //posiciona o tooltip no lugar legível dependendo da largura da tela e da posição da barra
-    //TODO não é responsivo em telas com largura menor que 400px
-    const offsetBarWidth = counterContainer.querySelector('.timeline-bar').offsetWidth;
-    console.log(offsetBarWidth, counterContainer.offsetWidth);
-    if(offsetBarWidth < 400) {
-        counterContainer.classList.add('timeline-tooltip-left');
-        counterContainer.classList.remove('timeline-tooltip-right');
-    } else if(offsetBarWidth > counterContainer.offsetWidth - 400) {
-        counterContainer.classList.add('timeline-tooltip-right');
-        counterContainer.classList.remove('timeline-tooltip-left');
-    } else {
-        counterContainer.classList.remove('timeline-tooltip-left');
-        counterContainer.classList.remove('timeline-tooltip-right');
-    }
+    counterContainer.querySelector('.timeline-bar').style.width = percentage.toFixed(2) + '%';//TODO animar a porcentagem  e o número quando a página carregar pela primeira vez
 
     return true;
 }

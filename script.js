@@ -1,6 +1,7 @@
 import Timer from './modules/timer.js';
 
-const tempoParaONatal = new Timer('25 December 2019 00:00:00 GMT-0300');
+
+const tempoParaONatal = new Timer('25 December ' + (new Date()).getFullYear() + ' 00:00:00 GMT-0300');
 
 const countdowDisplayMilliseconds = document.querySelector('#countdowDisplayMilliseconds');
 const countdowDisplaySeconds = document.querySelector('#countdowDisplaySeconds');
@@ -8,21 +9,24 @@ const countdowDisplayMinutes = document.querySelector('#countdowDisplayMinutes')
 const countdowDisplayHours = document.querySelector('#countdowDisplayHours');
 const countdowDisplayDays = document.querySelector('#countdowDisplayDays');
 
+document.querySelector('#targetDate').innerHTML = tempoParaONatal.targetDate.toLocaleDateString();
+
+
 setInterval( () => {
     countdowDisplayMilliseconds.innerHTML = `
-        ${tempoParaONatal.timestamp} timestamp (milliseconds)
+        ${tempoParaONatal.timestamp.milliseconds} timestamp (milliseconds)
     `;
 }, 1000);
 
 setInterval( () => {
-    const time = tempoParaONatal.toSeconds();
+    const time = tempoParaONatal.timestamp.toSeconds();
     countdowDisplaySeconds.innerHTML = `
         ${time.seconds} s
     `;
 }, 1000);
 
 setInterval( () => {
-    const time = tempoParaONatal.toMinutes();
+    const time = tempoParaONatal.timestamp.toMinutes();
     countdowDisplayMinutes.innerHTML = `
         ${time.minutes} m
         ${time.seconds} s
@@ -30,7 +34,7 @@ setInterval( () => {
 }, 1000);
 
 setInterval( () => {
-    const time = tempoParaONatal.toHours();
+    const time = tempoParaONatal.timestamp.toHours();
     countdowDisplayHours.innerHTML = `
         ${time.hours} h
         ${time.minutes} m
@@ -39,7 +43,7 @@ setInterval( () => {
 }, 1000);
 
 setInterval( () => {
-    const time = tempoParaONatal.toDays();
+    const time = tempoParaONatal.timestamp.toDays();
     countdowDisplayDays.innerHTML = `
         ${time.days} days
         ${time.hours} h
@@ -48,16 +52,16 @@ setInterval( () => {
     `;
 }, 1000);
 
-console.log('_actualDate: ', tempoParaONatal._actualDate);
-console.log('_targetDate: ', tempoParaONatal._targetDate);
+console.log('actualDate: ', tempoParaONatal.actualDate);
+console.log('targetDate: ', tempoParaONatal.targetDate);
 console.log('timestamp: ', tempoParaONatal.timestamp);
 
-console.log('seconds: ', tempoParaONatal.seconds);
-console.log('minutes: ', tempoParaONatal.minutes);
-console.log('hours: ', tempoParaONatal.hours);
-console.log('days: ', tempoParaONatal.days);
+console.log('seconds: ', tempoParaONatal.timestamp.seconds);
+console.log('minutes: ', tempoParaONatal.timestamp.minutes);
+console.log('hours: ', tempoParaONatal.timestamp.hours);
+console.log('days: ', tempoParaONatal.timestamp.days);
 
-console.log('toSeconds(): ', tempoParaONatal.toSeconds());
-console.log('toMinutes(): ', tempoParaONatal.toMinutes());
-console.log('toHours(): ', tempoParaONatal.toHours());
-console.log('toDays(): ', tempoParaONatal.toDays());
+console.log('toSeconds(): ', tempoParaONatal.timestamp.toSeconds());
+console.log('toMinutes(): ', tempoParaONatal.timestamp.toMinutes());
+console.log('toHours(): ', tempoParaONatal.timestamp.toHours());
+console.log('toDays(): ', tempoParaONatal.timestamp.toDays());

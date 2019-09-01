@@ -1,7 +1,7 @@
 import Timer from '../modules/timer.js';
 
 function initProgressiveTimer(){
-    const progressiveTimer = new Timer('24 December 2018 23:59:59 GMT-0300');
+    const progressiveTimer = new Timer('24 December ' + ((new Date()).getFullYear()-1) + ' 23:59:59 GMT-0300');//TODO essa lógica dá erro se o script for exeutado entre o natal e o ano novo
     
     const counterSeconds = document.querySelector('#progressive .countdown-seconds');
     const counterMinutes = document.querySelector('#progressive .countdown-minutes');
@@ -12,7 +12,7 @@ function initProgressiveTimer(){
      * Atualiza cada campo do contador (dia, hora, minuto e segundo) a cada segundo
      */
     setInterval( () => {
-        const time = progressiveTimer.toDays();
+        const time = progressiveTimer.timestamp.toDays();
         updateCounterView(counterSeconds, time.seconds);
         updateCounterView(counterMinutes, time.minutes);
         updateCounterView(counterHours, time.hours);
@@ -24,7 +24,7 @@ function initProgressiveTimer(){
 }
 
 function initRegressiveTimer(){
-    const regressiveTimer = new Timer('25 December 2019 00:00:00 GMT-0300');
+    const regressiveTimer = new Timer('25 December ' + (new Date()).getFullYear() + ' 00:00:00 GMT-0300');
     
     const counterSeconds = document.querySelector('#regressive .countdown-seconds');
     const counterMinutes = document.querySelector('#regressive .countdown-minutes');
@@ -35,7 +35,7 @@ function initRegressiveTimer(){
      * Atualiza cada campo do contador (dia, hora, minuto e segundo) a cada segundo
      */
     setInterval( () => {
-        const time = regressiveTimer.toDays();
+        const time = regressiveTimer.timestamp.toDays();
         updateCounterView(counterSeconds, time.seconds);
         updateCounterView(counterMinutes, time.minutes);
         updateCounterView(counterHours, time.hours);

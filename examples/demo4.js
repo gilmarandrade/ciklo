@@ -23,7 +23,7 @@ const leftCountdown = new Timer(urlParams.endDate);//'31 December 2019 00:00:00 
 const counterContainer = document.querySelector('#timeline');
 
 //data inicio menor que data fim
-if(elapsedCountdown._targetDate.getTime() < leftCountdown._targetDate.getTime()){
+if(elapsedCountdown.targetDate.getTime() < leftCountdown.targetDate.getTime()){
     console.log('init');
     initTimeline();
 }
@@ -34,8 +34,8 @@ if(elapsedCountdown._targetDate.getTime() < leftCountdown._targetDate.getTime())
  * Atualiza a cada segundo
  */
 function initTimeline() {
-    counterContainer.querySelector('.timeline-start').innerHTML = elapsedCountdown._targetDate.toLocaleDateString();
-    counterContainer.querySelector('.timeline-end').innerHTML = leftCountdown._targetDate.toLocaleDateString();
+    counterContainer.querySelector('.timeline-start').innerHTML = elapsedCountdown.targetDate.toLocaleDateString();
+    counterContainer.querySelector('.timeline-end').innerHTML = leftCountdown.targetDate.toLocaleDateString();
 
     let loop = true;
     const interval = setInterval( () => {
@@ -57,7 +57,7 @@ function initTimeline() {
 function updateTimelineView(counterContainer, elapsedCountdown, leftCountdown) {
     let percentage, elapsed, left;
 
-    if(leftCountdown._targetDate.getTime() < leftCountdown._actualDate.getTime()){//data final já passou, ou tempo esgotado
+    if(leftCountdown.targetDate.getTime() < leftCountdown.actualDate.getTime()){//data final já passou, ou tempo esgotado
         console.log('data final ja passou / tempo esgotado!');
         counterContainer.classList.add('ended');
         counterContainer.classList.remove('timeline-tooltip-left');
@@ -65,28 +65,30 @@ function updateTimelineView(counterContainer, elapsedCountdown, leftCountdown) {
         counterContainer.querySelector('.timeline-bar').style.width = '100%';
         counterContainer.querySelector('.timeelapsed-tooltip .timeline-percent').innerHTML = '100.0000000000000000%';
         counterContainer.querySelector('.timeleft-tooltip .timeline-percent').innerHTML = '-0.0000000000000000%';
-        counterContainer.querySelector('.timeelapsed-tooltip .timeline-days').innerHTML = '????';//TODO Não existe uma forma fácil de calcular os dias passados entre duas datas
+        const elapsed = Timer.dateDiff(leftCountdown.targetDate, elapsedCountdown.targetDate).toDays();
+        counterContainer.querySelector('.timeelapsed-tooltip .timeline-days').innerHTML =  elapsed.days + 'd ' + elapsed.hours + ':' + elapsed.minutes + ':' + elapsed.seconds;
         counterContainer.querySelector('.timeleft-tooltip .timeline-days').innerHTML =  '-0d';
         return false;
     }
     
-    if(elapsedCountdown._actualDate.getTime() < elapsedCountdown._targetDate.getTime()){//data inicial ainda não chegou
+    if(elapsedCountdown.actualDate.getTime() < elapsedCountdown.targetDate.getTime()){//data inicial ainda não chegou
         console.log('data inicial não chegou');
         counterContainer.classList.add('ended');
         counterContainer.querySelector('.timeline-bar').style.width = '0%';
         counterContainer.querySelector('.timeelapsed-tooltip .timeline-percent').innerHTML = '0.0000000000000000%';
         counterContainer.querySelector('.timeleft-tooltip .timeline-percent').innerHTML = '-100.0000000000000000%';
         counterContainer.querySelector('.timeelapsed-tooltip .timeline-days').innerHTML = '0d';
-        counterContainer.querySelector('.timeleft-tooltip .timeline-days').innerHTML =  '-????d';//TODO Não existe uma forma fácil de calcular os dias passados entre duas datas
+        const left = Timer.dateDiff(leftCountdown.targetDate, elapsedCountdown.targetDate).toDays();
+        counterContainer.querySelector('.timeleft-tooltip .timeline-days').innerHTML =  '-' + left.days + 'd ' + left.hours + ':' + left.minutes + ':' + left.seconds;
         return false;
     }
 
-    percentage = elapsedCountdown._actualDate.getTime() - elapsedCountdown._targetDate.getTime();
-    percentage /= (leftCountdown._targetDate.getTime() - elapsedCountdown._targetDate.getTime());
+    percentage = elapsedCountdown.timestamp.milliseconds;
+    percentage /= Timer.dateDiff(leftCountdown.targetDate, elapsedCountdown.targetDate).milliseconds;
     percentage *=100;
     
-    elapsed = elapsedCountdown.toDays();
-    left = leftCountdown.toDays();
+    elapsed = elapsedCountdown.timestamp.toDays();
+    left = leftCountdown.timestamp.toDays();
     
     counterContainer.querySelector('.timeline-bar').style.width = percentage.toFixed(2) + '%';//TODO animar a porcentagem  e o número quando a página carregar pela primeira vez
     counterContainer.querySelector('.timeelapsed-tooltip .timeline-percent').innerHTML = percentage + '%';

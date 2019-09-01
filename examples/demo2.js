@@ -14,7 +14,7 @@ var urlParams;
        urlParams[decode(match[1])] = decode(match[2]);
 })();
 
-//inicializa o contador com a data recebina na query string, através dp parâmetro targetDate
+//inicializa o contador com a data recebina na query string, através do parâmetro targetDate
 const countdown = new Timer(urlParams.targetDate);//25 December 2019 00:00:00 GMT-0300
 
 const counterContainer = document.querySelector('#timer');
@@ -23,7 +23,7 @@ const counterMinutes = document.querySelector('#timer .countdown-minutes');
 const counterHours = document.querySelector('#timer .countdown-hours');
 const counterDays = document.querySelector('#timer .countdown-days');
 
-if(countdown._actualDate.getTime() < countdown._targetDate.getTime()) {
+if(countdown.actualDate.getTime() < countdown.targetDate.getTime()) {
     //timer regressivo
     initRegressiveTimer();
 } else {
@@ -37,7 +37,7 @@ if(countdown._actualDate.getTime() < countdown._targetDate.getTime()) {
  */
 function initProgressiveTimer() {
     setInterval( () => {
-        const time = countdown.toDays();
+        const time = countdown.timestamp.toDays();
         updateCounterView(counterSeconds, time.seconds);
         updateCounterView(counterMinutes, time.minutes);
         updateCounterView(counterHours, time.hours);
@@ -52,16 +52,16 @@ function initProgressiveTimer() {
  * Atualiza cada campo do contador (dia, hora, minuto e segundo) a cada segundo
  */
 function initRegressiveTimer() {
-    counterContainer.classList.add('countdown__regressive');
+    counterContainer.classList.add('countdown__regressive');//TODO a nomenclatura das classes utilizadas no css não reflete corretamente as funções, precisa refatorar
 
     const interval = setInterval( () => {
-        const time = countdown.toDays();
+        const time = countdown.timestamp.toDays();
         updateCounterView(counterSeconds, time.seconds);
         updateCounterView(counterMinutes, time.minutes);
         updateCounterView(counterHours, time.hours);
         updateCounterView(counterDays, time.days);
         
-        if(countdown.timestamp < 1000) {//fim do tempo
+        if(countdown.timestamp.milliseconds < 1000) {//fim do tempo
             counterContainer.classList.add('ended');
             //comente essa linha para que o timer continue a contagem de forma negativa (como um timer progressivo)
             //clearInterval(interval);

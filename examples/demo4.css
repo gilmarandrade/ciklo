@@ -94,39 +94,45 @@ section {
     font-size: 12px;
 }
 
-.timeline-tooltip {/*TODO a posição do tooltip não está responsiva*/
+
+.tooltip {
+    width: 100%;
     position: absolute;
+    bottom: 30px;
     display: flex;
-    right: 0%;
-    bottom: 0px;
-    flex-wrap: nowrap;
+    font-size: 12px;
 }
 
-.timeelapsed-tooltip {
+.tooltip .left {
     text-align: right;
-    padding: 0px 10px;
-    font-size: 12px;
-    flex-grow: 1;
-    border-right: 1px solid #fff;
-    padding-bottom: 30px;
+    transition: all 2s ease-out;
+    flex-basis: 0;
+    flex-grow: 0;
 }
 
-.timeelapsed-tooltip .timeline-days {
-    font-size: 20px;
-    line-height: 5px;
-}
-
-.timeleft-tooltip {
-    position: absolute;
+.tooltip .right {
     text-align: left;
-    padding: 0px 10px;
-    font-size: 12px;
-    flex-grow: 1;
-    right: -108%;
-    padding-bottom: 30px;
+    border-left: 1px solid #fff;
+    flex-basis: 100%;
+    flex-grow: 100;
+    /* transition: all 5s ease-out; */
+    /* flex-basis: 100; */
 }
 
-.timeleft-tooltip .timeline-days {
+.timeline-days {
     font-size: 20px;
     line-height: 5px;
+    white-space: nowrap;
+}
+
+.tooltip .left .timeline-percent,
+.tooltip .left .timeline-days,
+.tooltip .left span {
+    margin-right: 10px;
+}
+
+.tooltip .right .timeline-percent,
+.tooltip .right .timeline-days,
+.tooltip .right span {
+    margin-left: 10px;
 }

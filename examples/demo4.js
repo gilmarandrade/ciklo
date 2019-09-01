@@ -60,24 +60,34 @@ function updateTimelineView(counterContainer, elapsedCountdown, leftCountdown) {
     if(leftCountdown.targetDate.getTime() < leftCountdown.actualDate.getTime()){//data final já passou, ou tempo esgotado
         console.log('data final ja passou / tempo esgotado!');
         counterContainer.classList.add('ended');
-        counterContainer.querySelector('.timeelapsed-tooltip .timeline-percent').innerHTML = '100.0000000000000000%';
-        counterContainer.querySelector('.timeleft-tooltip .timeline-percent').innerHTML = '-0.0000000000000000%';
+        counterContainer.querySelector('.tooltip .left .timeline-percent').innerHTML = '100.0000000000000000%';
+        counterContainer.querySelector('.tooltip .right .timeline-percent').innerHTML = '-0.0000000000000000%';
         const elapsed = Timer.dateDiff(leftCountdown.targetDate, elapsedCountdown.targetDate).toDays();
-        counterContainer.querySelector('.timeelapsed-tooltip .timeline-days').innerHTML =  elapsed.days + 'd ' + elapsed.hours + ':' + elapsed.minutes + ':' + elapsed.seconds;
-        counterContainer.querySelector('.timeleft-tooltip .timeline-days').innerHTML =  '-0d';
+        counterContainer.querySelector('.tooltip .left .timeline-days').innerHTML =  elapsed.days + 'd ' + elapsed.hours + ':' + elapsed.minutes + ':' + elapsed.seconds;
+        counterContainer.querySelector('.tooltip .right .timeline-days').innerHTML =  '-0d';
         counterContainer.querySelector('.timeline-bar').style.width = '100%';
+
+        counterContainer.querySelector('.tooltip .left').style.flexGrow = 100;
+        counterContainer.querySelector('.tooltip .right').style.flexGrow = 0;
+        counterContainer.querySelector('.tooltip .left').style.flexBasis = '100%';
+        counterContainer.querySelector('.tooltip .right').style.flexBasis = '0%';
         return false;
     }
     
     if(elapsedCountdown.actualDate.getTime() < elapsedCountdown.targetDate.getTime()){//data inicial ainda não chegou
         console.log('data inicial não chegou');
         counterContainer.classList.add('ended');
-        counterContainer.querySelector('.timeelapsed-tooltip .timeline-percent').innerHTML = '0.0000000000000000%';
-        counterContainer.querySelector('.timeleft-tooltip .timeline-percent').innerHTML = '-100.0000000000000000%';
-        counterContainer.querySelector('.timeelapsed-tooltip .timeline-days').innerHTML = '0d';
+        counterContainer.querySelector('.tooltip .left .timeline-percent').innerHTML = '0.0000000000000000%';
+        counterContainer.querySelector('.tooltip .right .timeline-percent').innerHTML = '-100.0000000000000000%';
+        counterContainer.querySelector('.tooltip .left .timeline-days').innerHTML = '0d';
         const left = Timer.dateDiff(leftCountdown.targetDate, elapsedCountdown.targetDate).toDays();
-        counterContainer.querySelector('.timeleft-tooltip .timeline-days').innerHTML =  '-' + left.days + 'd ' + left.hours + ':' + left.minutes + ':' + left.seconds;
+        counterContainer.querySelector('.tooltip .right .timeline-days').innerHTML =  '-' + left.days + 'd ' + left.hours + ':' + left.minutes + ':' + left.seconds;
         counterContainer.querySelector('.timeline-bar').style.width = '0%';
+
+        counterContainer.querySelector('.tooltip .left').style.flexGrow = 0;
+        counterContainer.querySelector('.tooltip .right').style.flexGrow = 100;
+        counterContainer.querySelector('.tooltip .left').style.flexBasis = '0%';
+        counterContainer.querySelector('.tooltip .right').style.flexBasis = '100%';
         return false;
     }
 
@@ -88,11 +98,15 @@ function updateTimelineView(counterContainer, elapsedCountdown, leftCountdown) {
     elapsed = elapsedCountdown.timestamp.toDays();
     left = leftCountdown.timestamp.toDays();
     
-    counterContainer.querySelector('.timeelapsed-tooltip .timeline-percent').innerHTML = percentage + '%';
-    counterContainer.querySelector('.timeleft-tooltip .timeline-percent').innerHTML = '-' + (100 - percentage) + '%';
-    counterContainer.querySelector('.timeelapsed-tooltip .timeline-days').innerHTML = elapsed.days + 'd ' + elapsed.hours + ':' + elapsed.minutes + ':' + elapsed.seconds;
-    counterContainer.querySelector('.timeleft-tooltip .timeline-days').innerHTML =  '-' + left.days + 'd ' + left.hours + ':' + left.minutes + ':' + left.seconds;
+    counterContainer.querySelector('.tooltip .left .timeline-percent').innerHTML = percentage + '%';
+    counterContainer.querySelector('.tooltip .right .timeline-percent').innerHTML = '-' + (100 - percentage) + '%';
+    counterContainer.querySelector('.tooltip .left .timeline-days').innerHTML = elapsed.days + 'd ' + elapsed.hours + ':' + elapsed.minutes + ':' + elapsed.seconds;
+    counterContainer.querySelector('.tooltip .right .timeline-days').innerHTML =  '-' + left.days + 'd ' + left.hours + ':' + left.minutes + ':' + left.seconds;
     counterContainer.querySelector('.timeline-bar').style.width = percentage.toFixed(2) + '%';//TODO animar a porcentagem  e o número quando a página carregar pela primeira vez
 
+    counterContainer.querySelector('.tooltip .left').style.flexGrow = percentage.toFixed(0);
+    counterContainer.querySelector('.tooltip .right').style.flexGrow = 100 - percentage.toFixed(0);
+    counterContainer.querySelector('.tooltip .left').style.flexBasis = percentage.toFixed(0) + '%';
+    counterContainer.querySelector('.tooltip .right').style.flexBasis = 100 - percentage.toFixed(0) + '%';
     return true;
 }

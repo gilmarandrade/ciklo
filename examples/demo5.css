@@ -1,0 +1,85 @@
+body {
+    font-family: 'Major Mono Display', monospace;
+    background-size: cover;
+    background-position: top center;
+}
+
+section {
+    margin: 50px;
+}
+
+.pixel-grid {
+    position: relative;
+    width: 100%;
+}
+
+.grid {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pixel {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background: #dadada;
+    border: 1px solid white;
+}
+
+.pixel.active {
+    background: rgb(5, 243, 0);
+}
+
+.pixel.today {
+    background: rgb(166, 11, 197);
+    animation: blink 2s infinite ease-in;
+}
+
+@keyframes blink {
+    0%   { background: rgb(91, 4, 109); }
+    30% { background: rgb(166, 11, 197); }
+    100% { background: rgb(91, 4, 109); }
+}
+
+.pixel.today::before {
+    content: 'você já está aqui!';
+    color: white;
+    background: inherit;
+    display: block;
+    position: absolute;
+    top: -59px;
+    width: 100px;
+    z-index: 1;
+    font-size: 12px;
+    padding: 10px;
+}
+
+.ended .pixel.today::before {
+    content: 'você conseguiu!';
+}
+
+.pixel.today::after {
+    content: '';
+    position: absolute;
+    top: -24px;
+    left: 3px;
+    width: 16px;
+    height: 16px;
+    background: inherit;
+    transform: rotate(-45deg);
+}
+
+.timeline-start {
+    font-size: 12px;
+    text-align: left;
+    position: relative;
+    left: 0;
+}
+
+.timeline-end {
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    text-align: right;
+}

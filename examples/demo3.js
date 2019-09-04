@@ -14,7 +14,7 @@ var urlParams;
        urlParams[decode(match[1])] = decode(match[2]);
 })();
 
-//inicializa o contador com a data recebina na query string, através dp parâmetro targetDate
+//inicializa o contador com a data recebida na query string, através dp parâmetro targetDate
 const countdown = new Timer(urlParams.targetDate);//25 December 2019 00:00:00 GMT-0300
 
 const counterContainer = document.querySelector('#timer');

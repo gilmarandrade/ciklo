@@ -1,6 +1,6 @@
 import Timer from '../modules/timer.js';
 
-
+var i = 0;
 const tempoParaONatal = new Timer('25 December ' + (new Date()).getFullYear() + ' 00:00:00 GMT-0300');
 
 const countdowDisplayMilliseconds = document.querySelector('#countdowDisplayMilliseconds');

@@ -1,7 +1,7 @@
 body {
     font-family: 'Major Mono Display', monospace;
     /* font-family: 'Roboto Mono', monospace;   */
-    background-image: linear-gradient(to bottom right, #00000099, #00000099), url('./brooke-campbell-Rw2-Y0nSIKQ-unsplash.jpg');
+    background-image: linear-gradient(to bottom right, #00000099, #00000099), url('../assets/brooke-campbell-Rw2-Y0nSIKQ-unsplash.jpg');
     background-size: cover;
     background-position: top center;
     color: white;

@@ -1,7 +1,7 @@
 body {
     font-family: 'Major Mono Display', monospace;
     /* font-family: 'Roboto Mono', monospace;   */
-    background-image: linear-gradient(to bottom right, #000000bb, #000000bb), url('./alex-perez-AIfbUyzhKz0-unsplash.jpg');
+    background-image: linear-gradient(to bottom right, #000000bb, #000000bb), url('../assets/alex-perez-AIfbUyzhKz0-unsplash.jpg');
     background-size: cover;
     background-position: top center;
     color: white;

@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Major Mono Display', monospace;
+    overflow-x: hidden;
 }
 
 a {

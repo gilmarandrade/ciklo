@@ -28,7 +28,7 @@ const leftCountdown = new Timer(urlParams.endDate); // '31 December 2019 00:00:0
  * @param {number} indexNew Valor a ser exibido no contador
  */
 function updateCounterView(counter, indexNew) {
-  if (counter.getAttribute('data-time') !== indexNew) {
+  if (+counter.getAttribute('data-time') !== indexNew) {
     counter.setAttribute('data-time', indexNew);
     counter.querySelector('span:first-child').innerText = String(indexNew).padStart(2, '0');
     counter.classList.add('animate');

@@ -1,4 +1,4 @@
-import Timer from '../modules/timer.js';
+import Timer from './modules/timer.js';
 
 //ler os parâmetros na query string e criar um array associativo
 var urlParams;

@@ -1,0 +1,36 @@
+{
+  "name": "ciklo",
+  "version": "1.0.0",
+  "description": "manipulação de intervalos de tempo para criação de cronômetros, contadores regressivos e etc...",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gilmarandrade/ciklo.git"
+  },
+  "keywords": [
+    "timer",
+    "countdown"
+  ],
+  "author": "Gilmar Andrade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gilmarandrade/ciklo/issues"
+  },
+  "homepage": "https://github.com/gilmarandrade/ciklo#readme",
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  }
+}

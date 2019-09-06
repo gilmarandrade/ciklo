@@ -1,4 +1,4 @@
-import Timer from '../modules/timer.js';
+import Timer from './modules/timer.js';
 
 function initProgressiveTimer(){
     const progressiveTimer = new Timer('24 December ' + ((new Date()).getFullYear()-1) + ' 23:59:59 GMT-0300');//TODO essa lógica dá erro se o script for exeutado entre o natal e o ano novo

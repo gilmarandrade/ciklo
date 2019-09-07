@@ -111,7 +111,7 @@ cite {
 
 .countdown-number.animate {
     transform: translateY(-100px);
-    transition: transform .9s ease-out;
+    transition: transform .5s ease-out;
 }
 
 .countdown__regressive .countdown-number {

@@ -36,7 +36,7 @@ function updateCounterView(counter, indexNew) {
     setTimeout(() => {
       counter.querySelector('span:last-child').innerText = String(indexNew).padStart(2, '0');
       counter.classList.remove('animate');
-    }, 950);
+    }, 700);
   }
 }
 

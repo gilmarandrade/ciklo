@@ -10,7 +10,8 @@ body {
 }
 
 a {
-    color: aqua;   
+    color: rgb(166, 11, 197);
+    font-weight: bold;
 }
 
 section {
@@ -135,7 +136,7 @@ cite {
 
 .countdown.ended {
     transition: color .95s ease-out;
-    color: red;
+    color:rgb(166, 11, 197);
 }
 
 
@@ -157,7 +158,7 @@ cite {
 
 .timeline-bar {
     transition: width 5s ease-out;
-    background: rgb(2, 128, 0);
+    background: #4CB33D;
     width: 0%;
     height: 1.3em;
     position: absolute;
@@ -181,7 +182,7 @@ cite {
 }
 
 .ended .timeline-bar.stripes {
-    background: rgb(60, 0, 128);
+    background: rgb(166, 11, 197);
     background-size: 30px 30px;
     background-image: linear-gradient(
         135deg,
@@ -286,7 +287,7 @@ cite {
 }
 
 .pixel.active {
-    background: rgb(5, 243, 0);
+    background: #4CB33D;
 }
 
 .pixel.today {

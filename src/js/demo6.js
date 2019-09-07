@@ -244,7 +244,7 @@ function initStatistics() {
       const elapsedDays = elapsed.toDays();
       counterContainer.innerHTML =
         `elapsed \n{
-          _timestamp: ${elapsed._timestamp}, 
+        _timestamp: ${elapsed._timestamp}, 
         days: ${elapsed.days}, 
         hours: ${elapsed.hours}, 
         minutes: ${elapsed.minutes}, 

@@ -16,11 +16,7 @@ let urlParams;
   }
 })();
 
-// contador de dias passados
-const elapsedCountdown = new Timer(urlParams.startDate); // 25 December 2019 00:00:00 GMT-0300
-// contador de dias restantes
-const leftCountdown = new Timer(urlParams.endDate); // '31 December 2019 00:00:00 GMT-0300'
-
+const timer = new Timer(urlParams.startDate, urlParams.endDate);
 
 /**
  * Caso seja necessário, atualiza a tela com os novos dados do contador
@@ -54,13 +50,13 @@ function initRegressiveTimer() {
   counterContainer.classList.add('countdown__regressive');
 
   const interval = setInterval(() => {
-    const time = leftCountdown.timestamp.toDays();
+    const time = timer.remaining.toDays();
     updateCounterView(counterSeconds, time.seconds);
     updateCounterView(counterMinutes, time.minutes);
     updateCounterView(counterHours, time.hours);
     updateCounterView(counterDays, time.days);
 
-    if (leftCountdown.timestamp.milliseconds < 1000) { // fim do tempo
+    if (timer.remaining.milliseconds < 1000) { // fim do tempo
       counterContainer.classList.add('ended');
       // comente essa linha para que o timer continue a contagem como um timer progressivo
       clearInterval(interval);
@@ -72,22 +68,18 @@ function initRegressiveTimer() {
 /**
  * Caso seja necessário, atualiza a tela com os novos dados do contador
  * @param {Element} counterContainer Elemento html que contém a linha do tempo
- * @param {Timer} elapsedCountdown contador progressivo da data incial até a data atual
- * @param {Timer} leftCountdown contador regresivo da data atual até a data final
+ * @param {Timer} timer contador progressivo
  * @returns Retorna true para continuar a contagem, e false para parar
  */
-function updateTimelineView(counterContainer, elapsedCountdown, leftCountdown) {
-  let percentage;
-  let elapsed;
-  let left;
+function updateTimelineView(counterContainer, timer) {
+  let percentage, elapsed, left;
 
-  if (leftCountdown.targetDate.getTime() < leftCountdown.actualDate.getTime()) {
-    // data final já passou, ou tempo esgotado
+  if (timer.endDate.getTime() < timer.actualDate.getTime()) { // data final já passou, ou tempo esgotado
     console.log('data final ja passou / tempo esgotado!');
     counterContainer.classList.add('ended');
     counterContainer.querySelector('.tooltip .left .timeline-percent').innerHTML = '100.0000000000000000%';
     counterContainer.querySelector('.tooltip .right .timeline-percent').innerHTML = '-0.0000000000000000%';
-    const elapsed = Timer.dateDiff(leftCountdown.targetDate, elapsedCountdown.targetDate).toDays();
+    const elapsed = timer.total.toDays();
     counterContainer.querySelector('.tooltip .left .timeline-days').innerHTML = `${elapsed.days}d ${elapsed.hours}:${elapsed.minutes}:${elapsed.seconds}`;
     counterContainer.querySelector('.tooltip .right .timeline-days').innerHTML = '-0d';
     counterContainer.querySelector('.timeline-bar').style.width = '100%';
@@ -99,14 +91,13 @@ function updateTimelineView(counterContainer, elapsedCountdown, leftCountdown) {
     return false;
   }
 
-  if (elapsedCountdown.actualDate.getTime() < elapsedCountdown.targetDate.getTime()) {
-    // data inicial ainda não chegou
+  if (timer.actualDate.getTime() < timer.startDate.getTime()) { // data inicial ainda não chegou
     console.log('data inicial não chegou');
     counterContainer.classList.add('ended');
     counterContainer.querySelector('.tooltip .left .timeline-percent').innerHTML = '0.0000000000000000%';
     counterContainer.querySelector('.tooltip .right .timeline-percent').innerHTML = '-100.0000000000000000%';
     counterContainer.querySelector('.tooltip .left .timeline-days').innerHTML = '0d';
-    const left = Timer.dateDiff(leftCountdown.targetDate, elapsedCountdown.targetDate).toDays();
+    const left = timer.total.toDays();
     counterContainer.querySelector('.tooltip .right .timeline-days').innerHTML = `-${left.days}d ${left.hours}:${left.minutes}:${left.seconds}`;
     counterContainer.querySelector('.timeline-bar').style.width = '0%';
 
@@ -117,12 +108,12 @@ function updateTimelineView(counterContainer, elapsedCountdown, leftCountdown) {
     return false;
   }
 
-  percentage = elapsedCountdown.timestamp.milliseconds;
-  percentage /= Timer.dateDiff(leftCountdown.targetDate, elapsedCountdown.targetDate).milliseconds;
+  percentage = timer.elapsed.milliseconds;
+  percentage /= timer.total.milliseconds;
   percentage *= 100;
 
-  elapsed = elapsedCountdown.timestamp.toDays();
-  left = leftCountdown.timestamp.toDays();
+  elapsed = timer.elapsed.toDays();
+  left = timer.remaining.toDays();
 
   counterContainer.querySelector('.tooltip .left .timeline-percent').innerHTML = `${percentage}%`;
   counterContainer.querySelector('.tooltip .right .timeline-percent').innerHTML = `-${100 - percentage}%`;
@@ -143,12 +134,12 @@ function updateTimelineView(counterContainer, elapsedCountdown, leftCountdown) {
  */
 function initTimeline() {
   const counterContainer = document.querySelector('#timeline');
-  counterContainer.querySelector('.timeline-start').innerHTML = elapsedCountdown.targetDate.toLocaleDateString();
-  counterContainer.querySelector('.timeline-end').innerHTML = leftCountdown.targetDate.toLocaleDateString();
+  counterContainer.querySelector('.timeline-start').innerHTML = timer.startDate.toLocaleDateString();
+  counterContainer.querySelector('.timeline-end').innerHTML = timer.endDate.toLocaleDateString();
 
   let loop = true;
-  const interval = setInterval(() => {
-    loop = updateTimelineView(counterContainer, elapsedCountdown, leftCountdown);
+  const interval = setInterval( () => {
+    loop = updateTimelineView(counterContainer, timer);
     if (!loop) {
       clearInterval(interval);
     }
@@ -163,26 +154,24 @@ function initPixelGrid() {
   const counterContainer = document.querySelector('#pixel-grid');
   const gridContainer = counterContainer.querySelector('.grid');
 
-  let elapsed = elapsedCountdown.timestamp.days;
-  let left = leftCountdown.timestamp.days;
+  let elapsed = timer.elapsed.days;
+  let left = timer.remaining.days;
 
-  if (leftCountdown.targetDate.getTime() < leftCountdown.actualDate.getTime()) {
-    // data final já passou, ou tempo esgotado
+  if (timer.endDate.getTime() < timer.actualDate.getTime()) { // data final já passou, ou tempo esgotado
     console.log('data final ja passou / tempo esgotado!');
-    elapsed = Timer.dateDiff(leftCountdown.targetDate, elapsedCountdown.targetDate).days;
+    elapsed = timer.total.days;
     left = 0;
     gridContainer.classList.add('ended');
   }
 
-  if (elapsedCountdown.actualDate.getTime() < elapsedCountdown.targetDate.getTime()) {
-    // data inicial ainda não chegou
+  if (timer.actualDate.getTime() < timer.startDate.getTime()) { // data inicial ainda não chegou
     console.log('data inicial não chegou');
     elapsed = 0;
-    left = Timer.dateDiff(leftCountdown.targetDate, elapsedCountdown.targetDate).days;
+    left = timer.total.days;
   }
 
-  counterContainer.querySelector('.timeline-start').innerHTML = elapsedCountdown.targetDate.toLocaleDateString();
-  counterContainer.querySelector('.timeline-end').innerHTML = leftCountdown.targetDate.toLocaleDateString();
+  counterContainer.querySelector('.timeline-start').innerHTML = timer.startDate.toLocaleDateString();
+  counterContainer.querySelector('.timeline-end').innerHTML = timer.endDate.toLocaleDateString();
 
   console.log(elapsed, 'dias passados');
   for (let i = 0; i < elapsed; i++) {
@@ -194,7 +183,7 @@ function initPixelGrid() {
   console.log(left, 'dias faltantes');
   const ele = document.createElement('div');
   ele.classList.add('pixel');
-  if (elapsed !== 0) {
+  if (elapsed != 0) {
     ele.classList.add('today');
   }
   gridContainer.append(ele);
@@ -212,31 +201,31 @@ function initPixelGrid() {
  */
 function initStatistics() {
   const counterContainer = document.querySelector('#statistics');
-  const toDays = elapsedCountdown.timestamp.toDays();
+  const toDays = timer.elapsed.toDays();
 
   counterContainer.innerHTML =
 `{
-    _timestamp: ${elapsedCountdown.timestamp._timestamp}, 
-    days: ${elapsedCountdown.timestamp.days}, 
-    hours: ${elapsedCountdown.timestamp.hours}, 
-    minutes: ${elapsedCountdown.timestamp.minutes}, 
-    seconds: ${elapsedCountdown.timestamp.seconds},
+    _timestamp: ${timer.elapsed._timestamp}, 
+    days: ${timer.elapsed.days}, 
+    hours: ${timer.elapsed.hours}, 
+    minutes: ${timer.elapsed.minutes}, 
+    seconds: ${timer.elapsed.seconds},
     extended: {days: ${toDays.days}, hours: ${toDays.hours}, minutes: ${toDays.minutes}, seconds: ${toDays.seconds}}
   }`;
 
   const interval = setInterval(() => {
-    let elapsed = elapsedCountdown.timestamp;
-    let left = leftCountdown.timestamp;
+    let elapsed = timer.elapsed;
+    let left = timer.remaining;
 
-    if (leftCountdown.targetDate.getTime() < leftCountdown.actualDate.getTime()) {
+    if (timer.endDate.getTime() < timer.actualDate.getTime()) {
       // data final já passou, ou tempo esgotado
       clearInterval(interval);
-      elapsed = Timer.dateDiff(leftCountdown.targetDate, elapsedCountdown.targetDate);
+      elapsed = timer.total;
       left = null;
-    } else if (elapsedCountdown.actualDate.getTime() < elapsedCountdown.targetDate.getTime()) {
+    } else if (timer.actualDate.getTime() < timer.startDate.getTime()) {
       // data inicial ainda não chegou
       clearInterval(interval);
-      left = Timer.dateDiff(leftCountdown.targetDate, elapsedCountdown.targetDate);
+      left = timer.total;
       elapsed = null;
     }
 
@@ -277,10 +266,10 @@ function initStatistics() {
 }
 
 // data inicio menor que data fim
-if (elapsedCountdown.targetDate.getTime() < leftCountdown.targetDate.getTime()) {
+// if (elapsedCountdown.targetDate.getTime() < leftCountdown.targetDate.getTime()) {
   console.log('init');
   initRegressiveTimer();
   initTimeline();
   initPixelGrid();
   initStatistics();
-}
+// }

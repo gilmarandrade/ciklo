@@ -1,0 +1,117 @@
+/**
+* Countdown
+*/
+
+#countdown-section {
+    
+}
+
+.countdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+.countdown-box {
+    text-align: center;
+    position: relative;
+}
+
+.countdow-divider {
+    position: relative;
+    text-align: center;
+}
+
+.countdow-divider::before {
+    content: ":";
+}
+
+.countdown-label {
+    font-size: .75em;
+    margin-top: .5em;
+}
+
+.countdown-track {
+    height: 1em;
+    overflow: hidden;
+    text-align: center;
+}
+
+.countdow-divider, .countdown-track {
+    font-size: 4em;
+}
+
+.countdown-number {
+    display: flex;
+    flex-direction: column-reverse;
+    top: 0px;
+    transform: translateY(0px);
+}
+
+.countdown-number.animate {
+    transform: translateY(-100px);
+    transition: transform .5s ease-out;
+}
+
+.countdown__regressive .countdown-number {
+    flex-direction: column;
+    transform: translateY(-100px);
+}
+
+.countdown__regressive .countdown-number.animate {
+    transform: translateY(0px);
+}
+
+.countdown-number span:first-child {
+    min-width: 100px;
+    height: 100px;
+}
+
+.countdown-number span:last-child {
+    min-width: 100px;
+    height: 100px;
+}
+
+.countdown.ended {
+    transition: color .95s ease-out;
+    color:rgb(166, 11, 197);
+}
+
+
+/* Dispositivos extra small (telefones em modo retrato, com menos de 576px)
+ Sem media query para `xs`, já que este é o padrão, no Bootstrap.*/
+
+/* Dispositivos small (telefones em modo paisagem, com 576px ou mais)*/
+@media (min-width: 576px) {
+
+    .countdown {
+        flex-direction: row;
+    }
+
+    .countdow-divider, .countdown-track {
+        font-size: 3em;
+    }
+
+}
+
+/* Dispositivos médios (tablets com 768px ou mais)*/
+@media (min-width: 768px) { 
+    .countdow-divider, .countdown-track {
+        font-size: 4em;
+    }
+ }
+
+/* Dispositivos large (desktops com 992px ou mais)*/
+@media (min-width: 992px) {
+    .countdow-divider, .countdown-track {
+        font-size: 5em;
+    }
+}
+
+/* Dispositivos extra large (desktops grandes com 1200px ou mais)*/
+@media (min-width: 1200px) {
+    .countdow-divider, .countdown-track {
+        font-size: 6em;
+    }
+}

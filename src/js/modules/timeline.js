@@ -1,3 +1,4 @@
+// TODO renomear timeline para progress bar
 export default class Timeline {
   constructor(counterContainer, timer) {
     this.counterContainer = counterContainer;

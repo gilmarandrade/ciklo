@@ -6,29 +6,37 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Timeline</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Roboto+Mono:400,500,700&display=swap" rel="stylesheet">
-    <link rel='stylesheet' type='text/css' media='screen' href='../css/demo4.css'>
+    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/style.css'>
 </head>
 
 <body>
-    <section>
-        <h1>teMpo desde o início do <del>universo</del> cuRso:</h1>
-        <div id="timeline" class="timeline">
-            <div class="timeline-track">
-                <div class="tooltip">
-                    <span class="left">
-                        <span class="timeline-percent">0000000000</span><h1 class="timeline-days">0000</h1><span>decorridos</span>
-                    </span>
-                    <span class="right">
-                        <span class="timeline-percent">0000000000</span><h1 class="timeline-days">0000</h1><span>restantes</span>
-                    </span>
+    <section id="countdown-section">
+        <div class="container-center">
+            <h1>timeline</h1>
+            <div id="timeline" class="timeline">
+                    <div class="tooltip">
+                            <span class="left">
+                                <span class="timeline-percent">0000000000</span>
+                                <h2 class="timeline-days">0000</h2>
+                                <span>decorridos</span>
+                            </span>
+                            <span class="right">
+                                <span class="timeline-percent">0000000000</span>
+                                <h2 class="timeline-days">0000</h2>
+                                <span>restantes</span>
+                            </span>
+                        </div>
+                <div class="timeline-track">
+                    <div class="timeline-bar stripes"></div>
                 </div>
-                <div class="timeline-bar stripes"></div>
+                <div class="timeline-hint">
+                    <span class="timeline-start">0000000</span>
+                    <span class="timeline-end">000000</span>
+                </div>
             </div>
-            <span class="timeline-start">0000000</span>
-            <span class="timeline-end">000000</span>
         </div>
-    </section> 
+    </section>
 
     <script type="module" src='../js/demo4.js'></script>
 </body>

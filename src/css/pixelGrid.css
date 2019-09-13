@@ -1,11 +1,10 @@
-body {
-    font-family: 'Major Mono Display', monospace;
-    background-size: cover;
-    background-position: top center;
-}
 
-section {
-    margin: 50px;
+/**
+* Pixel Grid
+*/
+
+#pixelgrid-section {
+ 
 }
 
 .pixel-grid {
@@ -21,6 +20,7 @@ section {
 
 .pixel {
     position: relative;
+    box-sizing: border-box;
     width: 20px;
     height: 20px;
     background: #dadada;
@@ -28,10 +28,11 @@ section {
 }
 
 .pixel.active {
-    background: rgb(5, 243, 0);
+    background: #4CB33D;
 }
 
 .pixel.today {
+    opacity: .8;
     background: rgb(166, 11, 197);
     animation: blink 2s infinite ease-in;
 }
@@ -43,15 +44,15 @@ section {
 }
 
 .pixel.today::before {
-    content: 'você já está aqui!';
+    content: 'você já está aqui e não pode desistir!';
     color: white;
     background: inherit;
     display: block;
     position: absolute;
-    top: -59px;
+    bottom: 30px;
     width: 100px;
     z-index: 1;
-    font-size: 12px;
+    font-size: .75em;
     padding: 10px;
 }
 
@@ -62,7 +63,7 @@ section {
 .pixel.today::after {
     content: '';
     position: absolute;
-    top: -24px;
+    bottom: 25px;
     left: 3px;
     width: 16px;
     height: 16px;
@@ -70,16 +71,39 @@ section {
     transform: rotate(-45deg);
 }
 
-.timeline-start {
-    font-size: 12px;
+.pixel-grid .timeline-start {
+    font-size: .75em;
     text-align: left;
     position: relative;
     left: 0;
 }
 
-.timeline-end {
-    font-size: 12px;
+.pixel-grid .timeline-end {
+    font-size: .75em;
     position: absolute;
     right: 0;
     text-align: right;
+}
+
+/* Dispositivos extra small (telefones em modo retrato, com menos de 576px)
+ Sem media query para `xs`, já que este é o padrão, no Bootstrap.*/
+
+/* Dispositivos small (telefones em modo paisagem, com 576px ou mais)*/
+@media (min-width: 576px) {
+
+}
+
+/* Dispositivos médios (tablets com 768px ou mais)*/
+@media (min-width: 768px) { 
+
+ }
+
+/* Dispositivos large (desktops com 992px ou mais)*/
+@media (min-width: 992px) {
+
+}
+
+/* Dispositivos extra large (desktops grandes com 1200px ou mais)*/
+@media (min-width: 1200px) {
+
 }

@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Major Mono Display', monospace;
+    overflow-x: hidden;
+}
+
+a {
+    color: rgb(166, 11, 197);
+    font-weight: bold;
+}
+
+section {
+    padding: 40px 0px;
+    display: flex;
+    justify-content: center;   
+}
+
+.container-center {
+    padding: 0 15px;
+    width: 100%;
+}
+
+footer {
+    background: black;
+    color: white;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    text-align: right;
+    font-size: .75em;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+blockquote {
+    text-transform: lowercase;
+    position: relative;
+    padding: 30px 36px;
+    line-height: 1.4em;
+    font-size: .75em;
+}
+
+blockquote::before {
+    content: '"';
+    font-size: 3em;
+    position: absolute;
+    left: 0;
+    top: .8em;
+}
+
+cite {
+    opacity: .8;
+}
+
+
+/* Dispositivos extra small (telefones em modo retrato, com menos de 576px)
+ Sem media query para `xs`, já que este é o padrão, no Bootstrap.*/
+
+/* Dispositivos small (telefones em modo paisagem, com 576px ou mais)*/
+@media (min-width: 576px) {
+    blockquote {
+        font-size: .75em;
+        padding: 50px 60px;
+    }
+
+    blockquote::before {
+        font-size: 5em;
+    }
+}
+
+/* Dispositivos médios (tablets com 768px ou mais)*/
+@media (min-width: 768px) { 
+
+}
+
+/* Dispositivos large (desktops com 992px ou mais)*/
+@media (min-width: 992px) {
+    .container-center {
+        max-width: 992px;
+    }
+}
+
+/* Dispositivos extra large (desktops grandes com 1200px ou mais)*/
+@media (min-width: 1200px) {
+
+}

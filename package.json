@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
     "dev": "webpack --mode development --watch",
-    "css": "postcss ./src/css/demo6.css -o ./src/css/demo6.min.css -u autoprefixer"
+    "css": "postcss ./src/css/style.css -o ./src/css/demo6.min.css -u autoprefixer"
   },
   "repository": {
     "type": "git",

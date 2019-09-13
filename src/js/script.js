@@ -1,8 +1,8 @@
-import Timer from './modules/timer.js';
+import Ciklo from './modules/ciklo.js';
 
-const tempoParaONatal = new Timer(
-  `12 September ${ (new Date()).getFullYear() +1} 23:59:59 GMT-0300`,
-  `15 September ${ (new Date()).getFullYear()  +1} 23:59:59 GMT-0300`,
+const tempoParaONatal = new Ciklo(
+  `12 September ${(new Date()).getFullYear() - 1} 23:59:59 GMT-0300`,
+  `15 September ${(new Date()).getFullYear()} 23:59:59 GMT-0300`,
 );
 
 const start_countdowDisplayMilliseconds = document.querySelector('#start_countdowDisplayMilliseconds');
@@ -17,8 +17,8 @@ const end_countdowDisplayMinutes = document.querySelector('#end_countdowDisplayM
 const end_countdowDisplayHours = document.querySelector('#end_countdowDisplayHours');
 const end_countdowDisplayDays = document.querySelector('#end_countdowDisplayDays');
 
-// document.querySelector('#startDate').innerHTML = tempoParaONatal.startDate.toLocaleDateString();
-// document.querySelector('#endDate').innerHTML = tempoParaONatal.endDate.toLocaleDateString();
+document.querySelector('#startDate').innerHTML = tempoParaONatal.startDate.toLocaleDateString();
+document.querySelector('#endDate').innerHTML = tempoParaONatal.endDate.toLocaleDateString();
 
 
 setInterval(() => {
@@ -53,7 +53,7 @@ setInterval(() => {
   end_countdowDisplayMinutes.innerHTML = `
         ${end.minutes} m
         ${end.seconds} s
-    `;    
+    `;
 }, 1000);
 
 setInterval(() => {

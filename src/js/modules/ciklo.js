@@ -4,7 +4,7 @@ import Timestamp from './timestamp.js';
  * Calcula a diferença de tempo entre duas datas.
  * Particularmente, calcula a diferença entre uma data (futura ou passada) e a data atual
  */
-export default class Timer {
+export default class Ciklo {
   /**
    * Recebe duas strings representando as datas de inicio e fim de um intervalo (não importa a ordem).
    * Pode receber apenas uma string, contendo uma data passada ou futura em relação ao momento atual.

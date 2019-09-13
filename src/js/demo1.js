@@ -1,4 +1,4 @@
-import Timer from './modules/timer.js';
+import Ciklo from './modules/ciklo.js';
 
 /**
  * Caso seja necessário, atualiza a tela com os novos dados do contador
@@ -18,7 +18,7 @@ function updateCounterView(counter, indexNew) {
   }
 }
 
-
+//TODO dá pra criar uma classe para o timer progressivo
 function initProgressiveTimer(timer) {
   const counterSeconds = document.querySelector('#progressive .countdown-seconds');
   const counterMinutes = document.querySelector('#progressive .countdown-minutes');
@@ -43,7 +43,7 @@ function initRegressiveTimer(timer) {
   const counterMinutes = document.querySelector('#regressive .countdown-minutes');
   const counterHours = document.querySelector('#regressive .countdown-hours');
   const counterDays = document.querySelector('#regressive .countdown-days');
-  
+
   /**
      * Atualiza cada campo do contador (dia, hora, minuto e segundo) a cada segundo
      */
@@ -56,13 +56,13 @@ function initRegressiveTimer(timer) {
   }, 1000);
 }
 
-(function() {
+(function () {
   initTimer();
-})();
+}());
 
 function initTimer() {
   // TODO essa lógica dá erro se o script for exeutado entre o natal e o ano novo
-  const timer = new Timer(
+  const timer = new Ciklo(
     `24 December ${(new Date()).getFullYear() - 1} 23:59:59 GMT-0300`,
     `25 December ${(new Date()).getFullYear()} 00:00:00 GMT-0300`,
   );

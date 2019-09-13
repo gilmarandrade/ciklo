@@ -1,19 +1,8 @@
-import Timer from './modules/timer.js';
-
-// TODO esse é codigo é identico ao demo 2
-// ler os parâmetros na query string e criar um array associativo
-var urlParams;
-(window.onpopstate = function () {
-  var match,
-    pl     = /\+/g,  // Regex for replacing addition symbol with a space
-    search = /([^&=]+)=?([^&]*)/g,
-    decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
-    query  = window.location.search.substring(1);
-
-  urlParams = {};
-  while (match = search.exec(query))
-    urlParams[decode(match[1])] = decode(match[2]);
-})();
+import Ciklo from './modules/ciklo.js';
+import UrlHelper from './utils/urlHelper.js';
+// TODO demo3 é muito semelhante ao demo2 será que dá pra excluir um?
+const urlHelper = new UrlHelper();
+const { targetDate } = urlHelper.params;
 
 
 const counterContainer = document.querySelector('#timer');
@@ -82,7 +71,7 @@ function initRegressiveTimer(timer) {
 
 function initTimer() {
   // inicializa o contador com a data recebina na query string, através do parâmetro targetDate
-  const timer = new Timer(urlParams.targetDate);// targetDate=25 December 2019 00:00:00 GMT-0300
+  const timer = new Ciklo(targetDate);// targetDate=25 December 2019 00:00:00 GMT-0300
   if (timer.startDate) {
     initProgressiveTimer(timer);
   } else if (timer.endDate) {

@@ -1,0 +1,31 @@
+@import url('./global.css');
+@import url('./digitalClock.css');
+@import url('./timeline.css');
+@import url('./pixelGrid.css');
+@import url('./statistics.css');
+
+
+
+/* Dispositivos extra small (telefones em modo retrato, com menos de 576px)
+ Sem media query para `xs`, já que este é o padrão, no Bootstrap.*/
+
+/* Dispositivos small (telefones em modo paisagem, com 576px ou mais)*/
+@media (min-width: 576px) {
+
+}
+
+/* Dispositivos médios (tablets com 768px ou mais)*/
+@media (min-width: 768px) { 
+
+ }
+
+/* Dispositivos large (desktops com 992px ou mais)*/
+@media (min-width: 992px) {
+
+}
+
+/* Dispositivos extra large (desktops grandes com 1200px ou mais)*/
+@media (min-width: 1200px) {
+
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3N0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSwyQkFBMkI7QUFDM0IsaUNBQWlDO0FBQ2pDLDZCQUE2QjtBQUM3Qiw4QkFBOEI7QUFDOUIsK0JBQStCOzs7O0FBSS9CO2tFQUNrRTs7QUFFbEUsc0VBQXNFO0FBQ3RFOztBQUVBOztBQUVBLG1EQUFtRDtBQUNuRDs7Q0FFQzs7QUFFRCxtREFBbUQ7QUFDbkQ7O0FBRUE7O0FBRUEsa0VBQWtFO0FBQ2xFOztBQUVBIiwiZmlsZSI6InN0eWxlLm1pbi5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IHVybCgnLi9nbG9iYWwuY3NzJyk7XHJcbkBpbXBvcnQgdXJsKCcuL2RpZ2l0YWxDbG9jay5jc3MnKTtcclxuQGltcG9ydCB1cmwoJy4vdGltZWxpbmUuY3NzJyk7XHJcbkBpbXBvcnQgdXJsKCcuL3BpeGVsR3JpZC5jc3MnKTtcclxuQGltcG9ydCB1cmwoJy4vc3RhdGlzdGljcy5jc3MnKTtcclxuXHJcblxyXG5cclxuLyogRGlzcG9zaXRpdm9zIGV4dHJhIHNtYWxsICh0ZWxlZm9uZXMgZW0gbW9kbyByZXRyYXRvLCBjb20gbWVub3MgZGUgNTc2cHgpXHJcbiBTZW0gbWVkaWEgcXVlcnkgcGFyYSBgeHNgLCBqw6EgcXVlIGVzdGUgw6kgbyBwYWRyw6NvLCBubyBCb290c3RyYXAuKi9cclxuXHJcbi8qIERpc3Bvc2l0aXZvcyBzbWFsbCAodGVsZWZvbmVzIGVtIG1vZG8gcGFpc2FnZW0sIGNvbSA1NzZweCBvdSBtYWlzKSovXHJcbkBtZWRpYSAobWluLXdpZHRoOiA1NzZweCkge1xyXG5cclxufVxyXG5cclxuLyogRGlzcG9zaXRpdm9zIG3DqWRpb3MgKHRhYmxldHMgY29tIDc2OHB4IG91IG1haXMpKi9cclxuQG1lZGlhIChtaW4td2lkdGg6IDc2OHB4KSB7IFxyXG5cclxuIH1cclxuXHJcbi8qIERpc3Bvc2l0aXZvcyBsYXJnZSAoZGVza3RvcHMgY29tIDk5MnB4IG91IG1haXMpKi9cclxuQG1lZGlhIChtaW4td2lkdGg6IDk5MnB4KSB7XHJcblxyXG59XHJcblxyXG4vKiBEaXNwb3NpdGl2b3MgZXh0cmEgbGFyZ2UgKGRlc2t0b3BzIGdyYW5kZXMgY29tIDEyMDBweCBvdSBtYWlzKSovXHJcbkBtZWRpYSAobWluLXdpZHRoOiAxMjAwcHgpIHtcclxuXHJcbn0iXX0= */

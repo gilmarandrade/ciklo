@@ -1,0 +1,38 @@
+/**
+* Statistics
+*/
+
+#statistics-section {
+    background: black;
+    color: white;
+}
+
+pre {
+    font-size: .85em;
+}
+
+
+
+/* Dispositivos extra small (telefones em modo retrato, com menos de 576px)
+ Sem media query para `xs`, já que este é o padrão, no Bootstrap.*/
+
+/* Dispositivos small (telefones em modo paisagem, com 576px ou mais)*/
+@media (min-width: 576px) {
+
+}
+
+/* Dispositivos médios (tablets com 768px ou mais)*/
+@media (min-width: 768px) { 
+
+ }
+
+/* Dispositivos large (desktops com 992px ou mais)*/
+@media (min-width: 992px) {
+
+}
+
+/* Dispositivos extra large (desktops grandes com 1200px ou mais)*/
+@media (min-width: 1200px) {
+
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3N0YXRpc3RpY3MuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztDQUVDOztBQUVEO0lBQ0ksaUJBQWlCO0lBQ2pCLFlBQVk7QUFDaEI7O0FBRUE7SUFDSSxnQkFBZ0I7QUFDcEI7Ozs7QUFJQTtrRUFDa0U7O0FBRWxFLHNFQUFzRTtBQUN0RTs7QUFFQTs7QUFFQSxtREFBbUQ7QUFDbkQ7O0NBRUM7O0FBRUQsbURBQW1EO0FBQ25EOztBQUVBOztBQUVBLGtFQUFrRTtBQUNsRTs7QUFFQSIsImZpbGUiOiJzdGF0aXN0aWNzLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxyXG4qIFN0YXRpc3RpY3NcclxuKi9cclxuXHJcbiNzdGF0aXN0aWNzLXNlY3Rpb24ge1xyXG4gICAgYmFja2dyb3VuZDogYmxhY2s7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbn1cclxuXHJcbnByZSB7XHJcbiAgICBmb250LXNpemU6IC44NWVtO1xyXG59XHJcblxyXG5cclxuXHJcbi8qIERpc3Bvc2l0aXZvcyBleHRyYSBzbWFsbCAodGVsZWZvbmVzIGVtIG1vZG8gcmV0cmF0bywgY29tIG1lbm9zIGRlIDU3NnB4KVxyXG4gU2VtIG1lZGlhIHF1ZXJ5IHBhcmEgYHhzYCwgasOhIHF1ZSBlc3RlIMOpIG8gcGFkcsOjbywgbm8gQm9vdHN0cmFwLiovXHJcblxyXG4vKiBEaXNwb3NpdGl2b3Mgc21hbGwgKHRlbGVmb25lcyBlbSBtb2RvIHBhaXNhZ2VtLCBjb20gNTc2cHggb3UgbWFpcykqL1xyXG5AbWVkaWEgKG1pbi13aWR0aDogNTc2cHgpIHtcclxuXHJcbn1cclxuXHJcbi8qIERpc3Bvc2l0aXZvcyBtw6lkaW9zICh0YWJsZXRzIGNvbSA3NjhweCBvdSBtYWlzKSovXHJcbkBtZWRpYSAobWluLXdpZHRoOiA3NjhweCkgeyBcclxuXHJcbiB9XHJcblxyXG4vKiBEaXNwb3NpdGl2b3MgbGFyZ2UgKGRlc2t0b3BzIGNvbSA5OTJweCBvdSBtYWlzKSovXHJcbkBtZWRpYSAobWluLXdpZHRoOiA5OTJweCkge1xyXG5cclxufVxyXG5cclxuLyogRGlzcG9zaXRpdm9zIGV4dHJhIGxhcmdlIChkZXNrdG9wcyBncmFuZGVzIGNvbSAxMjAwcHggb3UgbWFpcykqL1xyXG5AbWVkaWEgKG1pbi13aWR0aDogMTIwMHB4KSB7XHJcblxyXG59Il19 */

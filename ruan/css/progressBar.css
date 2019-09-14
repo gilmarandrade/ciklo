@@ -7,19 +7,19 @@
 * ProgressBar
 */
 
-.timeline {
+.progressBar {
     position: relative;
     width: 100%;
 }
 
-.timeline-track {
+.progressBar-track {
     background-color: #dadada;
     width: 100%;
     position: relative;
     height: 1.3em;
 }
 
-.timeline-bar {
+.progressBar-bar {
     transition: width 5s ease-out;
     background: #4CB33D;
     width: 0%;
@@ -29,7 +29,7 @@
     left: 0;
 }
 
-.timeline-bar.stripes {
+.progressBar-bar.stripes {
     background-size: 30px 30px;
     background-image: linear-gradient(
         135deg,
@@ -45,7 +45,7 @@
             animation: animate-stripes 2s linear infinite;
 }
 
-.ended .timeline-bar.stripes {
+.ended .progressBar-bar.stripes {
     background: rgb(166, 11, 197);
     background-size: 30px 30px;
     background-image: linear-gradient(
@@ -82,17 +82,17 @@
     }
 }
 
-.timeline .timeline-hint {
+.progressBar .progressBar-hint {
     display: flex;
     justify-content: space-between;
     margin-top: .3em;
 }
 
-.timeline .timeline-start, .timeline .timeline-end {
+.progressBar .progressBar-start, .progressBar .progressBar-end {
     font-size: .75em;
 }
 
-.timeline .tooltip {
+.progressBar .tooltip {
     width: 100%;
     position: relative;
     display: flex;
@@ -100,34 +100,34 @@
     padding-bottom: 1em;
 }
 
-.timeline .tooltip .left {
+.progressBar .tooltip .left {
     text-align: right;
     transition: all 2s ease-out;
     flex-basis: 0;
     flex-grow: 0;
 }
 
-.timeline .tooltip .right {
+.progressBar .tooltip .right {
     text-align: left;
     border-left: 1px solid rgb(139, 139, 139);
     flex-basis: 100%;
     flex-grow: 100;
 }
 
-.timeline .timeline-days {
+.progressBar .progressBar-days {
     font-size: 1.3em;
     white-space: nowrap;
 }
 
-.timeline .tooltip .left .timeline-percent,
-.timeline .tooltip .left .timeline-days,
-.timeline .tooltip .left span {
+.progressBar .tooltip .left .progressBar-percent,
+.progressBar .tooltip .left .progressBar-days,
+.progressBar .tooltip .left span {
     margin-right: 10px;
 }
 
-.timeline .tooltip .right .timeline-percent,
-.timeline .tooltip .right .timeline-days,
-.timeline .tooltip .right span {
+.progressBar .tooltip .right .progressBar-percent,
+.progressBar .tooltip .right .progressBar-days,
+.progressBar .tooltip .right span {
     margin-left: 10px;
 }
 
@@ -138,7 +138,7 @@
 /* Dispositivos small (telefones em modo paisagem, com 576px ou mais)*/
 @media (min-width: 576px) {
 
-    .timeline .timeline-days {
+    .progressBar .progressBar-days {
         font-size: 1.7em;
     }
 }

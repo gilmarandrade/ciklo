@@ -71,14 +71,14 @@
     transform: rotate(-45deg);
 }
 
-.pixel-grid .timeline-start {
+.pixel-grid .progressBar-start {
     font-size: .75em;
     text-align: left;
     position: relative;
     left: 0;
 }
 
-.pixel-grid .timeline-end {
+.pixel-grid .progressBar-end {
     font-size: .75em;
     position: absolute;
     right: 0;

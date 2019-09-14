@@ -28,8 +28,8 @@ export default class PixelGrid {
       left = this.timer.total.days;
     }
 
-    this.counterContainer.querySelector('.timeline-start').innerHTML = this.timer.startDate.toLocaleDateString();
-    this.counterContainer.querySelector('.timeline-end').innerHTML = this.timer.endDate.toLocaleDateString();
+    this.counterContainer.querySelector('.progressBar-start').innerHTML = this.timer.startDate.toLocaleDateString();
+    this.counterContainer.querySelector('.progressBar-end').innerHTML = this.timer.endDate.toLocaleDateString();
 
     for (let i = 0; i < elapsed; i++) {
       const ele = document.createElement('div');

@@ -1,4 +1,4 @@
-// TODO renomear timeline para progress bar
+// TODO renomear progressBar para progress bar
 export default class ProgressBar {
   constructor(counterContainer, timer) {
     this.counterContainer = counterContainer;
@@ -17,12 +17,12 @@ export default class ProgressBar {
     if (this.timer.endDate.getTime() < this.timer.actualDate.getTime()) { // data final já passou, ou tempo esgotado
       console.log('data final ja passou / tempo esgotado!');
       this.counterContainer.classList.add('ended');
-      this.counterContainer.querySelector('.tooltip .left .timeline-percent').innerHTML = '100.0000000000000000%';
-      this.counterContainer.querySelector('.tooltip .right .timeline-percent').innerHTML = '-0.0000000000000000%';
+      this.counterContainer.querySelector('.tooltip .left .progressBar-percent').innerHTML = '100.0000000000000000%';
+      this.counterContainer.querySelector('.tooltip .right .progressBar-percent').innerHTML = '-0.0000000000000000%';
       const elapsed = this.timer.total.toDays();
-      this.counterContainer.querySelector('.tooltip .left .timeline-days').innerHTML = `${elapsed.days}d ${elapsed.hours}:${elapsed.minutes}:${elapsed.seconds}`;
-      this.counterContainer.querySelector('.tooltip .right .timeline-days').innerHTML = '-0d';
-      this.counterContainer.querySelector('.timeline-bar').style.width = '100%';
+      this.counterContainer.querySelector('.tooltip .left .progressBar-days').innerHTML = `${elapsed.days}d ${elapsed.hours}:${elapsed.minutes}:${elapsed.seconds}`;
+      this.counterContainer.querySelector('.tooltip .right .progressBar-days').innerHTML = '-0d';
+      this.counterContainer.querySelector('.progressBar-bar').style.width = '100%';
 
       this.counterContainer.querySelector('.tooltip .left').style.flexGrow = 100;
       this.counterContainer.querySelector('.tooltip .right').style.flexGrow = 0;
@@ -34,12 +34,12 @@ export default class ProgressBar {
     if (this.timer.actualDate.getTime() < this.timer.startDate.getTime()) { // data inicial ainda não chegou
       console.log('data inicial não chegou');
       this.counterContainer.classList.add('ended');
-      this.counterContainer.querySelector('.tooltip .left .timeline-percent').innerHTML = '0.0000000000000000%';
-      this.counterContainer.querySelector('.tooltip .right .timeline-percent').innerHTML = '-100.0000000000000000%';
-      this.counterContainer.querySelector('.tooltip .left .timeline-days').innerHTML = '0d';
+      this.counterContainer.querySelector('.tooltip .left .progressBar-percent').innerHTML = '0.0000000000000000%';
+      this.counterContainer.querySelector('.tooltip .right .progressBar-percent').innerHTML = '-100.0000000000000000%';
+      this.counterContainer.querySelector('.tooltip .left .progressBar-days').innerHTML = '0d';
       const left = this.timer.total.toDays();
-      this.counterContainer.querySelector('.tooltip .right .timeline-days').innerHTML = `-${left.days}d ${left.hours}:${left.minutes}:${left.seconds}`;
-      this.counterContainer.querySelector('.timeline-bar').style.width = '0%';
+      this.counterContainer.querySelector('.tooltip .right .progressBar-days').innerHTML = `-${left.days}d ${left.hours}:${left.minutes}:${left.seconds}`;
+      this.counterContainer.querySelector('.progressBar-bar').style.width = '0%';
 
       this.counterContainer.querySelector('.tooltip .left').style.flexGrow = 0;
       this.counterContainer.querySelector('.tooltip .right').style.flexGrow = 100;
@@ -55,11 +55,11 @@ export default class ProgressBar {
     elapsed = this.timer.elapsed.toDays();
     left = this.timer.remaining.toDays();
 
-    this.counterContainer.querySelector('.tooltip .left .timeline-percent').innerHTML = `${percentage}%`;
-    this.counterContainer.querySelector('.tooltip .right .timeline-percent').innerHTML = `-${100 - percentage}%`;
-    this.counterContainer.querySelector('.tooltip .left .timeline-days').innerHTML = `${elapsed.days}d ${elapsed.hours}:${elapsed.minutes}:${elapsed.seconds}`;
-    this.counterContainer.querySelector('.tooltip .right .timeline-days').innerHTML = `-${left.days}d ${left.hours}:${left.minutes}:${left.seconds}`;
-    this.counterContainer.querySelector('.timeline-bar').style.width = `${percentage.toFixed(2)}%`;// TODO animar a porcentagem  e o número quando a página carregar pela primeira vez
+    this.counterContainer.querySelector('.tooltip .left .progressBar-percent').innerHTML = `${percentage}%`;
+    this.counterContainer.querySelector('.tooltip .right .progressBar-percent').innerHTML = `-${100 - percentage}%`;
+    this.counterContainer.querySelector('.tooltip .left .progressBar-days').innerHTML = `${elapsed.days}d ${elapsed.hours}:${elapsed.minutes}:${elapsed.seconds}`;
+    this.counterContainer.querySelector('.tooltip .right .progressBar-days').innerHTML = `-${left.days}d ${left.hours}:${left.minutes}:${left.seconds}`;
+    this.counterContainer.querySelector('.progressBar-bar').style.width = `${percentage.toFixed(2)}%`;// TODO animar a porcentagem  e o número quando a página carregar pela primeira vez
 
     this.counterContainer.querySelector('.tooltip .left').style.flexGrow = percentage.toFixed(0);
     this.counterContainer.querySelector('.tooltip .right').style.flexGrow = 100 - percentage.toFixed(0);
@@ -73,9 +73,9 @@ export default class ProgressBar {
  * Atualiza a cada segundo
  */
   init() {
-    const counterContainer = document.querySelector('#timeline');
-    counterContainer.querySelector('.timeline-start').innerHTML = this.timer.startDate.toLocaleDateString();
-    counterContainer.querySelector('.timeline-end').innerHTML = this.timer.endDate.toLocaleDateString();
+    const counterContainer = document.querySelector('#progressBar');
+    counterContainer.querySelector('.progressBar-start').innerHTML = this.timer.startDate.toLocaleDateString();
+    counterContainer.querySelector('.progressBar-end').innerHTML = this.timer.endDate.toLocaleDateString();
 
     let loop = true;
     const interval = setInterval(() => {

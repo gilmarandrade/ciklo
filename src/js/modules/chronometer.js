@@ -48,9 +48,13 @@ export default class Chronometer {
 
     const span1 = document.createElement('span');
     countdownNumber.appendChild(span1);
+    const conteudoSpan1 = document.createTextNode('00');
+    span1.appendChild(conteudoSpan1);
 
     const span2 = document.createElement('span');
     countdownNumber.appendChild(span2);
+    const conteudoSpan2 = document.createTextNode('00');
+    span2.appendChild(conteudoSpan2);
   }
 
   createDivider() {

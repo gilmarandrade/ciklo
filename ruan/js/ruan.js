@@ -1,9 +1,9 @@
-import Ciklo from './modules/ciklo.js';
-import Countdown from './modules/countdown.js';
-import UrlHelper from './utils/urlHelper.js';
-import Timeline from './modules/timeline.js';
-import PixelGrid from './modules/pixelGrid.js';
-import Statistics from './modules/statistics.js';
+import Ciklo from '../../src/js/modules/ciklo.js';
+import Countdown from '../../src/js/modules/countdown.js';
+import UrlHelper from '../../src/js/utils/urlHelper.js';
+import Timeline from '../../src/js/modules/timeline.js';
+import PixelGrid from '../../src/js/modules/pixelGrid.js';
+import Statistics from '../../src/js/modules/statistics.js';
 
 const urlHelper = new UrlHelper();
 const { startDate, endDate } = urlHelper.params;

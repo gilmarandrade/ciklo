@@ -18,18 +18,35 @@
     position: relative;
 }
 
-.countdow-divider {
+.countdown-box::after {
+    font-size: .75em;
+    margin-top: .5em;
+}
+
+.countdown-divider {
     position: relative;
     text-align: center;
 }
 
-.countdow-divider::before {
+.countdown-divider::before {
     content: ":";
 }
 
-.countdown-label {
-    font-size: .75em;
-    margin-top: .5em;
+
+.countdown-days.countdown-box::after {
+    content: "dias";
+}
+
+.countdown-hours.countdown-box::after {
+    content: "horas";
+}
+
+.countdown-minutes.countdown-box::after {
+    content: "minutos";
+}
+
+.countdown-seconds.countdown-box::after {
+    content: "segundos";
 }
 
 .countdown-track {
@@ -38,7 +55,7 @@
     text-align: center;
 }
 
-.countdow-divider, .countdown-track {
+.countdown-divider, .countdown-track {
     font-size: 4em;
 }
 
@@ -49,7 +66,7 @@
     transform: translateY(0px);
 }
 
-.countdown-number.animate {
+.animate .countdown-number {
     transform: translateY(-100px);
     transition: transform .5s ease-out;
 }
@@ -59,7 +76,7 @@
     transform: translateY(-100px);
 }
 
-.countdown__regressive .countdown-number.animate {
+.countdown__regressive .animate .countdown-number {
     transform: translateY(0px);
 }
 
@@ -89,7 +106,7 @@
         flex-direction: row;
     }
 
-    .countdow-divider, .countdown-track {
+    .countdown-divider, .countdown-track {
         font-size: 3em;
     }
 
@@ -97,21 +114,21 @@
 
 /* Dispositivos médios (tablets com 768px ou mais)*/
 @media (min-width: 768px) { 
-    .countdow-divider, .countdown-track {
+    .countdown-divider, .countdown-track {
         font-size: 4em;
     }
  }
 
 /* Dispositivos large (desktops com 992px ou mais)*/
 @media (min-width: 992px) {
-    .countdow-divider, .countdown-track {
+    .countdown-divider, .countdown-track {
         font-size: 5em;
     }
 }
 
 /* Dispositivos extra large (desktops grandes com 1200px ou mais)*/
 @media (min-width: 1200px) {
-    .countdow-divider, .countdown-track {
+    .countdown-divider, .countdown-track {
         font-size: 6em;
     }
 }

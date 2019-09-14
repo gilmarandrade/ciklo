@@ -1,7 +1,7 @@
 import Ciklo from './modules/ciklo.js';
 import Countdown from './modules/countdown.js';
 import UrlHelper from './utils/urlHelper.js';
-import Timeline from './modules/timeline.js';
+import ProgressBar from './modules/timeline.js';
 import PixelGrid from './modules/pixelGrid.js';
 import Statistics from './modules/statistics.js';
 
@@ -13,7 +13,7 @@ const timer = new Ciklo(startDate, endDate);
 // TODO construir o HTML com javascript
 const countdown = new Countdown(document.querySelector('#timer'), timer);
 // TODO renomear timeline para ProgressBar
-const timeline = new Timeline(document.querySelector('#timeline'), timer);
+const timeline = new ProgressBar(document.querySelector('#timeline'), timer);
 const pixelGrid = new PixelGrid(document.querySelector('#pixel-grid'), timer);
 const statistics = new Statistics(document.querySelector('#statistics'), timer);
 

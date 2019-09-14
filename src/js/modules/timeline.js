@@ -1,5 +1,5 @@
 // TODO renomear timeline para progress bar
-export default class Timeline {
+export default class ProgressBar {
   constructor(counterContainer, timer) {
     this.counterContainer = counterContainer;
     this.timer = timer;
@@ -11,7 +11,7 @@ export default class Timeline {
  * @param {Timer} timer contador progressivo
  * @returns Retorna true para continuar a contagem, e false para parar
  */
-  updateTimelineView() {
+  updateProgressBarView() {
     let percentage; let elapsed; let left;
 
     if (this.timer.endDate.getTime() < this.timer.actualDate.getTime()) { // data final já passou, ou tempo esgotado
@@ -79,7 +79,7 @@ export default class Timeline {
 
     let loop = true;
     const interval = setInterval(() => {
-      loop = this.updateTimelineView();
+      loop = this.updateProgressBarView();
       if (!loop) {
         clearInterval(interval);
       }

@@ -1,4 +1,4 @@
-import Ciklo from './modules/ciklo.js';
+import Ciklo from './modules/Ciklo.js';
 
 const tempoParaONatal = new Ciklo(
   `12 September ${(new Date()).getFullYear() - 1} 23:59:59 GMT-0300`,

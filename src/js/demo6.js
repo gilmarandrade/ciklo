@@ -1,9 +1,9 @@
-import Ciklo from './modules/ciklo.js';
-import Countdown from './modules/countdown.js';
-import UrlHelper from './utils/urlHelper.js';
-import ProgressBar from './modules/progressBar.js';
-import PixelGrid from './modules/pixelGrid.js';
-import Statistics from './modules/statistics.js';
+import Ciklo from './modules/Ciklo.js';
+import Countdown from './modules/Countdown.js';
+import UrlHelper from './utils/UrlHelper.js';
+import ProgressBar from './modules/ProgressBar.js';
+import PixelGrid from './modules/PixelGrid.js';
+import Statistics from './modules/Statistics.js';
 
 const urlHelper = new UrlHelper();
 const { startDate, endDate } = urlHelper.params;

@@ -1,6 +1,6 @@
-import Ciklo from './modules/ciklo.js';
-import Countdown from './modules/countdown.js';
-import Chronometer from './modules/chronometer.js';
+import Ciklo from './modules/Ciklo.js';
+import Countdown from './modules/Countdown.js';
+import Chronometer from './modules/Chronometer.js';
 
 function initTimer() {
   // TODO essa lógica dá erro se o script for exeutado entre o natal e o ano novo

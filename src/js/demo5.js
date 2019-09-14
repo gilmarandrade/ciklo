@@ -1,6 +1,6 @@
-import Ciklo from './modules/ciklo.js';
-import PixelGrid from './modules/pixelGrid.js';
-import UrlHelper from './utils/urlHelper.js';
+import Ciklo from './modules/Ciklo.js';
+import PixelGrid from './modules/PixelGrid.js';
+import UrlHelper from './utils/UrlHelper.js';
 
 const urlHelper = new UrlHelper();
 const { startDate, endDate } = urlHelper.params;

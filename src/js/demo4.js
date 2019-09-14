@@ -1,6 +1,6 @@
-import Ciklo from './modules/ciklo.js';
-import UrlHelper from './utils/urlHelper.js';
-import ProgressBar from './modules/progressBar.js';
+import Ciklo from './modules/Ciklo.js';
+import UrlHelper from './utils/UrlHelper.js';
+import ProgressBar from './modules/ProgressBar.js';
 
 const urlHelper = new UrlHelper();
 const { startDate, endDate } = urlHelper.params;

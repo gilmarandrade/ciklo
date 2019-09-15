@@ -1,4 +1,4 @@
-import Ciklo from "./Ciklo.js";
+import Ciklo from "./Ciklo";
 
 // TODO renomear progress-bar para progress bar
 export default class ProgressBar {

@@ -1,5 +1,5 @@
-import UrlHelper from './utils/UrlHelper.js';
-import ProgressBar from './modules/ProgressBar.js';
+import UrlHelper from '../../src/js/utils/UrlHelper';
+import ProgressBar from '../../src/js/modules/ProgressBar';
 
 const urlHelper = new UrlHelper();
 const { startDate, endDate } = urlHelper.params;

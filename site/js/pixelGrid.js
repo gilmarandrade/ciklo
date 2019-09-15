@@ -1,5 +1,5 @@
-import PixelGrid from './modules/PixelGrid.js';
-import UrlHelper from './utils/UrlHelper.js';
+import PixelGrid from '../../src/js/modules/PixelGrid';
+import UrlHelper from '../../src/js/utils/UrlHelper';
 
 const urlHelper = new UrlHelper();
 const { startDate, endDate } = urlHelper.params;

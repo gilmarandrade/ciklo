@@ -1,4 +1,4 @@
-import Timestamp from './Timestamp.js';
+import Timestamp from './Timestamp';
 
 /**
  * Calcula a diferença de tempo entre duas datas.

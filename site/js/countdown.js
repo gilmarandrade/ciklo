@@ -1,4 +1,4 @@
-import Countdown from './modules/Countdown.js';
+import Countdown from '../../src/js/modules/Countdown';
 
 const countdown = new Countdown(
   document.querySelector('#regressive'), 

@@ -1,4 +1,4 @@
-import Ciklo from "./Ciklo.js";
+import Ciklo from "./Ciklo";
 
 // TODO: refatorar estatísticas para usar o toString()
 export default class Statistics {

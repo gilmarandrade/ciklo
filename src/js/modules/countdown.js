@@ -1,4 +1,4 @@
-import Ciklo from "./Ciklo.js";
+import Ciklo from "./Ciklo";
 
 export default class Countdown {
   constructor(container, options) {

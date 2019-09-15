@@ -1,8 +1,8 @@
-import Countdown from './modules/Countdown.js';
-import UrlHelper from './utils/UrlHelper.js';
-import ProgressBar from './modules/ProgressBar.js';
-import PixelGrid from './modules/PixelGrid.js';
-import Statistics from './modules/Statistics.js';
+import Countdown from '../../src/js/modules/Countdown';
+import UrlHelper from '../../src/js/utils/UrlHelper';
+import ProgressBar from '../../src/js/modules/ProgressBar';
+import PixelGrid from '../../src/js/modules/PixelGrid';
+import Statistics from '../../src/js/modules/Statistics';
 
 const urlHelper = new UrlHelper();
 const { startDate, endDate } = urlHelper.params;

@@ -1,9 +1,26 @@
+// https://www.thebasement.be/working-with-babel-7-and-webpack/
 const path = require('path');
 
 module.exports = {
-  entry: ['@babel/polyfill', 'whatwg-fetch', './src/js/ruan.js'],
+  entry: {
+    index: './site/js/index.js',
+    chronometer: './site/js/chronometer.js',
+    countdown: './site/js/countdown.js',
+    progressBar: './site/js/progressBar.js',
+    pixelGrid: './site/js/pixelGrid.js',
+    tudoJunto: './site/js/tudoJunto.js',
+  },
   output: {
-    path: path.resolve(__dirname, './'),
-    filename: './src/js/ruan.min.js',
+    filename: '[name].min.js',
+    path: path.resolve(__dirname, './dist'),
+  },
+  module: {
+    rules: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+      },
+    }],
   },
 };

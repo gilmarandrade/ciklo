@@ -1,7 +1,7 @@
-import Ciklo from './modules/Ciklo.js';
-import UrlHelper from './utils/UrlHelper.js';
-import Chronometer from './modules/Chronometer.js';
-import Countdown from './modules/Countdown.js';
+import Ciklo from '../../src/js/modules/Ciklo';
+import UrlHelper from '../../src/js/utils/UrlHelper';
+import Chronometer from '../../src/js/modules/Chronometer';
+import Countdown from '../../src/js/modules/Countdown';
 
 const urlHelper = new UrlHelper();
 const { targetDate } = urlHelper.params;

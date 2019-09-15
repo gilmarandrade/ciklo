@@ -7,7 +7,9 @@ export default class PixelGrid {
   /**
  * Pixel grid dos dias decorridos e restantes
  */
+  // TODO: refatorar este metodo
   init() {
+    this.build();
     const gridContainer = this.counterContainer.querySelector('.grid');
 
     let elapsed = this.timer.elapsed.days;
@@ -50,5 +52,19 @@ export default class PixelGrid {
       ele.classList.add('pixel');
       gridContainer.append(ele);
     }
+  }
+
+  build() {
+    const start = document.createElement('span');
+    start.classList.add('progressBar-start');
+    this.counterContainer.appendChild(start);
+
+    const grid = document.createElement('div');
+    grid.classList.add('grid');
+    this.counterContainer.appendChild(grid);
+
+    const end = document.createElement('span');
+    end.classList.add('progressBar-end');
+    this.counterContainer.appendChild(end);
   }
 }

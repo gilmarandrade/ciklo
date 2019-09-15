@@ -1,3 +1,4 @@
+// TODO: refatorar estatísticas para usar o toString()
 export default class Statistics {
   constructor(counterContainer, timer) {
     this.counterContainer = counterContainer;

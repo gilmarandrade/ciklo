@@ -1,3 +1,4 @@
+// TODO: fazer rebuild do código atualizado
 import Ciklo from '../../src/js/modules/Ciklo.js';
 import Countdown from '../../src/js/modules/Countdown.js';
 import UrlHelper from '../../src/js/utils/UrlHelper.js';
@@ -10,9 +11,7 @@ const { startDate, endDate } = urlHelper.params;
 
 const timer = new Ciklo(startDate, endDate);
 
-// TODO construir o HTML com javascript
 const countdown = new Countdown(document.querySelector('#timer'), timer);
-// TODO renomear progressBar para ProgressBar
 const progressBar = new ProgressBar(document.querySelector('#progressBar'), timer);
 const pixelGrid = new PixelGrid(document.querySelector('#pixel-grid'), timer);
 const statistics = new Statistics(document.querySelector('#statistics'), timer);

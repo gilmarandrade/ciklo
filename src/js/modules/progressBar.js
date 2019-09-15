@@ -1,7 +1,7 @@
 // TODO renomear progressBar para progress bar
 export default class ProgressBar {
-  constructor(counterContainer, timer) {
-    this.counterContainer = counterContainer;
+  constructor(container, timer) {
+    this.container = container;
     this.timer = timer;
   }
 
@@ -17,35 +17,35 @@ export default class ProgressBar {
 
     if (this.timer.endDate.getTime() < this.timer.actualDate.getTime()) { // data final já passou, ou tempo esgotado
       console.log('data final ja passou / tempo esgotado!');
-      this.counterContainer.classList.add('ended');
-      this.counterContainer.querySelector('.tooltip .left .progressBar-percent').innerHTML = '100.0000000000000000%';
-      this.counterContainer.querySelector('.tooltip .right .progressBar-percent').innerHTML = '-0.0000000000000000%';
+      this.container.classList.add('ended');
+      this.container.querySelector('.tooltip .left .progressBar-percent').innerHTML = '100.0000000000000000%';
+      this.container.querySelector('.tooltip .right .progressBar-percent').innerHTML = '-0.0000000000000000%';
       const elapsed = this.timer.total.toDays();
-      this.counterContainer.querySelector('.tooltip .left .progressBar-days').innerHTML = `${elapsed.days}d ${elapsed.hours}:${elapsed.minutes}:${elapsed.seconds}`;
-      this.counterContainer.querySelector('.tooltip .right .progressBar-days').innerHTML = '-0d';
-      this.counterContainer.querySelector('.progressBar-bar').style.width = '100%';
+      this.container.querySelector('.tooltip .left .progressBar-days').innerHTML = `${elapsed.days}d ${elapsed.hours}:${elapsed.minutes}:${elapsed.seconds}`;
+      this.container.querySelector('.tooltip .right .progressBar-days').innerHTML = '-0d';
+      this.container.querySelector('.progressBar-bar').style.width = '100%';
 
-      this.counterContainer.querySelector('.tooltip .left').style.flexGrow = 100;
-      this.counterContainer.querySelector('.tooltip .right').style.flexGrow = 0;
-      this.counterContainer.querySelector('.tooltip .left').style.flexBasis = '100%';
-      this.counterContainer.querySelector('.tooltip .right').style.flexBasis = '0%';
+      this.container.querySelector('.tooltip .left').style.flexGrow = 100;
+      this.container.querySelector('.tooltip .right').style.flexGrow = 0;
+      this.container.querySelector('.tooltip .left').style.flexBasis = '100%';
+      this.container.querySelector('.tooltip .right').style.flexBasis = '0%';
       return false;
     }
 
     if (this.timer.actualDate.getTime() < this.timer.startDate.getTime()) { // data inicial ainda não chegou
       console.log('data inicial não chegou');
-      this.counterContainer.classList.add('ended');
-      this.counterContainer.querySelector('.tooltip .left .progressBar-percent').innerHTML = '0.0000000000000000%';
-      this.counterContainer.querySelector('.tooltip .right .progressBar-percent').innerHTML = '-100.0000000000000000%';
-      this.counterContainer.querySelector('.tooltip .left .progressBar-days').innerHTML = '0d';
+      this.container.classList.add('ended');
+      this.container.querySelector('.tooltip .left .progressBar-percent').innerHTML = '0.0000000000000000%';
+      this.container.querySelector('.tooltip .right .progressBar-percent').innerHTML = '-100.0000000000000000%';
+      this.container.querySelector('.tooltip .left .progressBar-days').innerHTML = '0d';
       const left = this.timer.total.toDays();
-      this.counterContainer.querySelector('.tooltip .right .progressBar-days').innerHTML = `-${left.days}d ${left.hours}:${left.minutes}:${left.seconds}`;
-      this.counterContainer.querySelector('.progressBar-bar').style.width = '0%';
+      this.container.querySelector('.tooltip .right .progressBar-days').innerHTML = `-${left.days}d ${left.hours}:${left.minutes}:${left.seconds}`;
+      this.container.querySelector('.progressBar-bar').style.width = '0%';
 
-      this.counterContainer.querySelector('.tooltip .left').style.flexGrow = 0;
-      this.counterContainer.querySelector('.tooltip .right').style.flexGrow = 100;
-      this.counterContainer.querySelector('.tooltip .left').style.flexBasis = '0%';
-      this.counterContainer.querySelector('.tooltip .right').style.flexBasis = '100%';
+      this.container.querySelector('.tooltip .left').style.flexGrow = 0;
+      this.container.querySelector('.tooltip .right').style.flexGrow = 100;
+      this.container.querySelector('.tooltip .left').style.flexBasis = '0%';
+      this.container.querySelector('.tooltip .right').style.flexBasis = '100%';
       return false;
     }
 
@@ -56,16 +56,16 @@ export default class ProgressBar {
     elapsed = this.timer.elapsed.toDays();
     left = this.timer.remaining.toDays();
 
-    this.counterContainer.querySelector('.tooltip .left .progressBar-percent').innerHTML = `${percentage}%`;
-    this.counterContainer.querySelector('.tooltip .right .progressBar-percent').innerHTML = `-${100 - percentage}%`;
-    this.counterContainer.querySelector('.tooltip .left .progressBar-days').innerHTML = `${elapsed.days}d ${elapsed.hours}:${elapsed.minutes}:${elapsed.seconds}`;
-    this.counterContainer.querySelector('.tooltip .right .progressBar-days').innerHTML = `-${left.days}d ${left.hours}:${left.minutes}:${left.seconds}`;
-    this.counterContainer.querySelector('.progressBar-bar').style.width = `${percentage.toFixed(2)}%`;// TODO animar a porcentagem  e o número quando a página carregar pela primeira vez
+    this.container.querySelector('.tooltip .left .progressBar-percent').innerHTML = `${percentage}%`;
+    this.container.querySelector('.tooltip .right .progressBar-percent').innerHTML = `-${100 - percentage}%`;
+    this.container.querySelector('.tooltip .left .progressBar-days').innerHTML = `${elapsed.days}d ${elapsed.hours}:${elapsed.minutes}:${elapsed.seconds}`;
+    this.container.querySelector('.tooltip .right .progressBar-days').innerHTML = `-${left.days}d ${left.hours}:${left.minutes}:${left.seconds}`;
+    this.container.querySelector('.progressBar-bar').style.width = `${percentage.toFixed(2)}%`;// TODO animar a porcentagem  e o número quando a página carregar pela primeira vez
 
-    this.counterContainer.querySelector('.tooltip .left').style.flexGrow = percentage.toFixed(0);
-    this.counterContainer.querySelector('.tooltip .right').style.flexGrow = 100 - percentage.toFixed(0);
-    this.counterContainer.querySelector('.tooltip .left').style.flexBasis = `${percentage.toFixed(0)}%`;
-    this.counterContainer.querySelector('.tooltip .right').style.flexBasis = `${100 - percentage.toFixed(0)}%`;
+    this.container.querySelector('.tooltip .left').style.flexGrow = percentage.toFixed(0);
+    this.container.querySelector('.tooltip .right').style.flexGrow = 100 - percentage.toFixed(0);
+    this.container.querySelector('.tooltip .left').style.flexBasis = `${percentage.toFixed(0)}%`;
+    this.container.querySelector('.tooltip .right').style.flexBasis = `${100 - percentage.toFixed(0)}%`;
     return true;
   }
 
@@ -75,8 +75,8 @@ export default class ProgressBar {
  */
   init() {
     this.build();
-    this.counterContainer.querySelector('.progressBar-start').innerHTML = this.timer.startDate.toLocaleDateString();
-    this.counterContainer.querySelector('.progressBar-end').innerHTML = this.timer.endDate.toLocaleDateString();
+    this.container.querySelector('.progressBar-start').innerHTML = this.timer.startDate.toLocaleDateString();
+    this.container.querySelector('.progressBar-end').innerHTML = this.timer.endDate.toLocaleDateString();
 
     let loop = true;
     const interval = setInterval(() => {
@@ -90,7 +90,7 @@ export default class ProgressBar {
   createTooltip() {
     const tooltip = document.createElement('div');
     tooltip.classList.add('tooltip');
-    this.counterContainer.appendChild(tooltip);
+    this.container.appendChild(tooltip);
 
     const left = document.createElement('span');
     left.classList.add('left');
@@ -131,7 +131,7 @@ export default class ProgressBar {
   createBar() {
     const track = document.createElement('div');
     track.classList.add('progressBar-track');
-    this.counterContainer.appendChild(track);
+    this.container.appendChild(track);
 
     const bar = document.createElement('div');
     bar.classList.add('progressBar-bar', 'stripes');
@@ -139,7 +139,7 @@ export default class ProgressBar {
 
     const hint = document.createElement('div');
     hint.classList.add('progressBar-hint');
-    this.counterContainer.appendChild(hint);
+    this.container.appendChild(hint);
 
     const start = document.createElement('div');
     start.classList.add('progressBar-start');
@@ -150,6 +150,7 @@ export default class ProgressBar {
     hint.appendChild(end);
   }
 
+  // FIXME: todas as criações de componente dão erro se o container for null
   build() {
     this.createTooltip();
     this.createBar();

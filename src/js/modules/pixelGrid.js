@@ -12,7 +12,7 @@ export default class PixelGrid {
   // TODO: refatorar este metodo
   init() {
     this.build();
-    const gridContainer = this.container.querySelector('.grid');
+    const gridContainer = this.container.querySelector('.pixelgrid__grid');
 
     let elapsed = this.timer.elapsed.days;
     let left = this.timer.remaining.days;
@@ -22,7 +22,7 @@ export default class PixelGrid {
       console.log('data final ja passou / tempo esgotado!');
       elapsed = this.timer.total.days;
       left = 0;
-      gridContainer.classList.add('ended');
+      this.container.classList.add('pixel-grid--ended');
     }
 
     if (this.timer.actualDate.getTime() < this.timer.startDate.getTime()) { 
@@ -32,41 +32,42 @@ export default class PixelGrid {
       left = this.timer.total.days;
     }
 
-    this.container.querySelector('.progressBar-start').innerHTML = this.timer.startDate.toLocaleDateString();
-    this.container.querySelector('.progressBar-end').innerHTML = this.timer.endDate.toLocaleDateString();
+    this.container.querySelector('.pixel-grid__start-date').innerHTML = this.timer.startDate.toLocaleDateString();
+    this.container.querySelector('.pixel-grid__end-date').innerHTML = this.timer.endDate.toLocaleDateString();
 
     for (let i = 0; i < elapsed; i++) {
       const ele = document.createElement('div');
-      ele.classList.add('pixel', 'active');
+      ele.classList.add('pixel-grid__pixel', 'pixel-grid__pixel--elapsed');
       gridContainer.append(ele);
     }
 
 
     const ele = document.createElement('div');
-    ele.classList.add('pixel');
+    ele.classList.add('pixel-grid__pixel');
     if (elapsed != 0) {
-      ele.classList.add('today');
+      ele.classList.add('pixel-grid__pixel--today');
     }
     gridContainer.append(ele);
 
     for (let i = 0; i < left - 1; i++) {
       const ele = document.createElement('div');
-      ele.classList.add('pixel');
+      ele.classList.add('pixel-grid__pixel');
       gridContainer.append(ele);
     }
   }
 
   build() {
+    this.container.classList.add('pixel-grid');
     const start = document.createElement('span');
-    start.classList.add('progressBar-start');
+    start.classList.add('pixel-grid__start-date');
     this.container.appendChild(start);
 
     const grid = document.createElement('div');
-    grid.classList.add('grid');
+    grid.classList.add('pixelgrid__grid');
     this.container.appendChild(grid);
 
     const end = document.createElement('span');
-    end.classList.add('progressBar-end');
+    end.classList.add('pixel-grid__end-date');
     this.container.appendChild(end);
   }
 }

@@ -1,99 +1,97 @@
 /**
-* Countdown
+* Digital Clock
+* 
+* Pode ser usado pelo Chronometer ou Countdown
 */
 
-#countdown-section {
-    
-}
-
-.countdown {
+.digital-clock {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     flex-wrap: nowrap;
 }
 
-.countdown-box {
+.digital-clock--ended {
+    transition: color .95s ease-out;
+    color:rgb(166, 11, 197);
+}
+
+.digital-clock__divider {
+    position: relative;
+    text-align: center;
+}
+
+.digital-clock__divider::before {
+    content: ":";
+}
+
+.digital-clock__box {
     text-align: center;
     position: relative;
 }
 
-.countdown-box::after {
+.digital-clock__box::after {
     font-size: .75em;
     margin-top: .5em;
 }
 
-.countdown-divider {
-    position: relative;
-    text-align: center;
-}
-
-.countdown-divider::before {
-    content: ":";
-}
-
-
-.countdown-days.countdown-box::after {
+.digital-clock__box--days::after {
     content: "dias";
 }
 
-.countdown-hours.countdown-box::after {
+.digital-clock__box--hours::after {
     content: "horas";
 }
 
-.countdown-minutes.countdown-box::after {
+.digital-clock__box--minutes::after {
     content: "minutos";
 }
 
-.countdown-seconds.countdown-box::after {
+.digital-clock__box--seconds::after {
     content: "segundos";
 }
 
-.countdown-track {
+.digital-clock__track {
     height: 1em;
     overflow: hidden;
     text-align: center;
 }
 
-.countdown-divider, .countdown-track {
+.digital-clock__divider, .digital-clock__track {
     font-size: 4em;
 }
 
-.countdown-number {
+.digital-clock__number {
     display: flex;
     flex-direction: column-reverse;
     top: 0px;
     transform: translateY(0px);
 }
 
-.animate .countdown-number {
-    transform: translateY(-100px);
-    transition: transform .5s ease-out;
-}
-
-.countdown__regressive .countdown-number {
+.digital-clock--regressive .digital-clock__number {
     flex-direction: column;
     transform: translateY(-100px);
 }
 
-.countdown__regressive .animate .countdown-number {
+.digital-clock__box--animating .digital-clock__number {
+    transform: translateY(-100px);
+    transition: transform .5s ease-out;
+}
+
+.digital-clock--regressive .digital-clock__box--animating .digital-clock__number {
     transform: translateY(0px);
 }
 
-.countdown-number span:first-child {
+.digital-clock__number span:first-child {
     min-width: 100px;
     height: 100px;
 }
 
-.countdown-number span:last-child {
+.digital-clock__number span:last-child {
     min-width: 100px;
     height: 100px;
 }
 
-.countdown.ended {
-    transition: color .95s ease-out;
-    color:rgb(166, 11, 197);
-}
 
 
 /* Dispositivos extra small (telefones em modo retrato, com menos de 576px)
@@ -102,11 +100,11 @@
 /* Dispositivos small (telefones em modo paisagem, com 576px ou mais)*/
 @media (min-width: 576px) {
 
-    .countdown {
+    .digital-clock {
         flex-direction: row;
     }
 
-    .countdown-divider, .countdown-track {
+    .digital-clock__divider, .digital-clock__track {
         font-size: 3em;
     }
 
@@ -114,21 +112,21 @@
 
 /* Dispositivos médios (tablets com 768px ou mais)*/
 @media (min-width: 768px) { 
-    .countdown-divider, .countdown-track {
+    .digital-clock__divider, .digital-clock__track {
         font-size: 4em;
     }
  }
 
 /* Dispositivos large (desktops com 992px ou mais)*/
 @media (min-width: 992px) {
-    .countdown-divider, .countdown-track {
+    .digital-clock__divider, .digital-clock__track {
         font-size: 5em;
     }
 }
 
 /* Dispositivos extra large (desktops grandes com 1200px ou mais)*/
 @media (min-width: 1200px) {
-    .countdown-divider, .countdown-track {
+    .digital-clock__divider, .digital-clock__track {
         font-size: 6em;
     }
 }

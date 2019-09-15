@@ -1,37 +1,49 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Ciklo - Basic use</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/style.css'>
 </head>
+
 <body>
-    <h1>Tempo desde <span id="startDate"></span></h1>
-    <div id="start_countdowDisplayMilliseconds" class="countdown"></div>
-    <div id="start_countdowDisplaySeconds" class="countdown"></div>
-    <div id="start_countdowDisplayMinutes" class="countdown"></div>
-    <div id="start_countdowDisplayHours" class="countdown"></div>
-    <div id="start_countdowDisplayDays" class="countdown"></div>
-
-
-    <h1>Tempo até <span id="endDate"></span></h1>
-    <div id="end_countdowDisplayMilliseconds" class="countdown"></div>
-    <div id="end_countdowDisplaySeconds" class="countdown"></div>
-    <div id="end_countdowDisplayMinutes" class="countdown"></div>
-    <div id="end_countdowDisplayHours" class="countdown"></div>
-    <div id="end_countdowDisplayDays" class="countdown"></div>
-
-    <aside>
-        <h1>Exemplos</h1>
-        <ul>
-            <li><a href="./chronometer.html">Chronometer</a></li>
-            <li><a href="./countdown.html">Countdown</a></li>
-            <li><a href="./progressBar.html?startDate=27+January+2014+00:00:00+GMT-0300&endDate=14+June+2020+00:00:00+GMT-0300">Progress Bar</a></li>
-            <li><a href="./pixelGrid.html?startDate=27+January+2014+00:00:00+GMT-0300&endDate=14+June+2020+00:00:00+GMT-0300">Pixel Grid</a></li>
-            <li><a href="./tudoJunto.html?startDate=27+January+2014+00:00:00+GMT-0300&endDate=14+June+2020+00:00:00+GMT-0300">Tudo junto</a></li>
-        </ul>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Tempo desde <span id="startDate"></span></h1>
+            <div id="start_countdowDisplayMilliseconds" class="countdown"></div>
+            <div id="start_countdowDisplaySeconds" class="countdown"></div>
+            <div id="start_countdowDisplayMinutes" class="countdown"></div>
+            <div id="start_countdowDisplayHours" class="countdown"></div>
+            <div id="start_countdowDisplayDays" class="countdown"></div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Tempo até <span id="endDate"></span></h1>
+            <div id="end_countdowDisplayMilliseconds" class="countdown"></div>
+            <div id="end_countdowDisplaySeconds" class="countdown"></div>
+            <div id="end_countdowDisplayMinutes" class="countdown"></div>
+            <div id="end_countdowDisplayHours" class="countdown"></div>
+            <div id="end_countdowDisplayDays" class="countdown"></div>
+        </div>
+    </section>
+    <aside class="section">
+        <div class="container">
+            <h1 class="title">Exemplos</h1>
+            <ul>
+                <li><a href="./chronometer.html">chronometer</a></li>
+                <li><a href="./countdown.html">countdown</a></li>
+                <li><a href="./progressBar.html?startDate=27+January+2014+00:00:00+GMT-0300&endDate=14+June+2020+00:00:00+GMT-0300">progress bar</a></li>
+                <li><a href="./pixelGrid.html?startDate=27+January+2014+00:00:00+GMT-0300&endDate=14+June+2020+00:00:00+GMT-0300">pixel grid</a></li>
+                <li><a href="./tudoJunto.html?startDate=27+January+2014+00:00:00+GMT-0300&endDate=14+June+2020+00:00:00+GMT-0300">tudo junto</a></li>
+            </ul>
+        </div>
     </aside>
     <script type="module" src='../js/script.js'></script>
 </body>
+
 </html>

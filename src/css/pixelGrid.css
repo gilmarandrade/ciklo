@@ -3,22 +3,18 @@
 * Pixel Grid
 */
 
-#pixelgrid-section {
- 
-}
-
 .pixel-grid {
     position: relative;
     width: 100%;
 }
 
-.grid {
+.pixelgrid__grid {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
 }
 
-.pixel {
+.pixel-grid__pixel {
     position: relative;
     box-sizing: border-box;
     width: 20px;
@@ -27,14 +23,8 @@
     border: 1px solid white;
 }
 
-.pixel.active {
+.pixel-grid__pixel--elapsed {
     background: #4CB33D;
-}
-
-.pixel.today {
-    opacity: .8;
-    background: rgb(166, 11, 197);
-    animation: blink 2s infinite ease-in;
 }
 
 @keyframes blink {
@@ -43,7 +33,13 @@
     100% { background: rgb(91, 4, 109); }
 }
 
-.pixel.today::before {
+.pixel-grid__pixel--today {
+    opacity: .8;
+    background: rgb(166, 11, 197);
+    animation: blink 2s infinite ease-in;
+}
+
+.pixel-grid__pixel--today::before {
     content: 'você já está aqui e não pode desistir!';
     color: white;
     background: inherit;
@@ -56,11 +52,7 @@
     padding: 10px;
 }
 
-.ended .pixel.today::before {
-    content: 'você conseguiu!';
-}
-
-.pixel.today::after {
+.pixel-grid__pixel--today::after {
     content: '';
     position: absolute;
     bottom: 25px;
@@ -71,14 +63,18 @@
     transform: rotate(-45deg);
 }
 
-.pixel-grid .progressBar-start {
+.pixel-grid--ended .pixel-grid__pixel--today::before {
+    content: 'você conseguiu!';
+}
+
+.pixel-grid__start-date {
     font-size: .75em;
     text-align: left;
     position: relative;
     left: 0;
 }
 
-.pixel-grid .progressBar-end {
+.pixel-grid__end-date {
     font-size: .75em;
     position: absolute;
     right: 0;

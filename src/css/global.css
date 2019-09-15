@@ -1,3 +1,9 @@
+/**
+* Estilo global das páginas de exemplo
+*
+* Não afeta os componentes (exceto a definição da font-family) e pode ser ignorado
+*/
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -14,50 +20,61 @@ a {
     font-weight: bold;
 }
 
-section {
-    padding: 40px 0px;
+.section {
     display: flex;
     justify-content: center;   
+    padding: 40px 0px;
 }
 
-.container-center {
-    padding: 0 15px;
-    width: 100%;
-}
-
-footer {
+.section--dark {
     background: black;
     color: white;
-    padding: 15px 0;
+}
+
+.container {
+    width: 100%;
+    padding: 0 15px;
+}
+
+.footer {
     display: flex;
     justify-content: center;
     text-align: right;
     font-size: .75em;
+    padding: 15px 0;
+    color: white;
+    background: black;
 }
 
-h1 {
+.title {
     margin-bottom: 30px;
 }
 
-blockquote {
-    text-transform: lowercase;
+.quote {
     position: relative;
     padding: 30px 36px;
     line-height: 1.4em;
     font-size: .75em;
+    text-transform: lowercase;
 }
 
-blockquote::before {
-    content: '"';
-    font-size: 3em;
+.quote::before {
     position: absolute;
     left: 0;
     top: .8em;
+    content: '"';
+    font-size: 3em;
 }
 
-cite {
+.quote cite {
     opacity: .8;
 }
+
+
+pre {
+    font-size: .85em;
+}
+
 
 
 /* Dispositivos extra small (telefones em modo retrato, com menos de 576px)
@@ -65,12 +82,12 @@ cite {
 
 /* Dispositivos small (telefones em modo paisagem, com 576px ou mais)*/
 @media (min-width: 576px) {
-    blockquote {
-        font-size: .75em;
+    .quote {
         padding: 50px 60px;
+        font-size: .75em;
     }
 
-    blockquote::before {
+    .quote::before {
         font-size: 5em;
     }
 }
@@ -82,7 +99,7 @@ cite {
 
 /* Dispositivos large (desktops com 992px ou mais)*/
 @media (min-width: 992px) {
-    .container-center {
+    .container {
         max-width: 992px;
     }
 }

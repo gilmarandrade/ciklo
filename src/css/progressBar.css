@@ -1,25 +1,64 @@
-/*
-    TODO renomear para progressbar
-*/
-
-
 /**
-* ProgressBar
+* Progress Bar
 */
 
-.progressBar {
+.progress-bar {
     position: relative;
     width: 100%;
 }
 
-.progressBar-track {
+.progress-bar__clock-box {
+    width: 100%;
+    position: relative;
+    display: flex;
+    font-size: .65em;
+    padding-bottom: 1em;
+}
+
+.progress-bar__clock {
+
+}
+
+.progress-bar__clock--elapsed {
+    text-align: right;
+    transition: all 2s ease-out;
+    flex-basis: 0;
+    flex-grow: 0;
+}
+
+.progress-bar__clock--remaining {
+    text-align: left;
+    border-left: 1px solid rgb(139, 139, 139);
+    flex-basis: 100%;
+    flex-grow: 100;
+}
+
+.progress-bar__days {
+    font-size: 1.3em;
+    white-space: nowrap;
+}
+
+.progress-bar__clock--elapsed .progress-bar__percentage,
+.progress-bar__clock--elapsed .progress-bar__days,
+.progress-bar__clock--elapsed .progress-bar__label {
+    margin-right: 10px;
+}
+
+.progress-bar__clock--remaining .progress-bar__percentage,
+.progress-bar__clock--remaining .progress-bar__days,
+.progress-bar__clock--remaining .progress-bar__label {
+    margin-left: 10px;
+}
+
+
+.progress-bar__full-bar {
     background-color: #dadada;
     width: 100%;
     position: relative;
     height: 1.3em;
 }
 
-.progressBar-bar {
+.progress-bar__progression {
     transition: width 5s ease-out;
     background: #4CB33D;
     width: 0%;
@@ -27,9 +66,6 @@
     position: absolute;
     top: 0;
     left: 0;
-}
-
-.progressBar-bar.stripes {
     background-size: 30px 30px;
     background-image: linear-gradient(
         135deg,
@@ -44,7 +80,7 @@
     animation: animate-stripes 2s linear infinite;
 }
 
-.ended .progressBar-bar.stripes {
+.progress-bar--ended .progress-bar__progression {
     background: rgb(166, 11, 197);
     background-size: 30px 30px;
     background-image: linear-gradient(
@@ -70,53 +106,11 @@
     }
 }
 
-.progressBar .progressBar-hint {
+.progress-bar__dates {
     display: flex;
     justify-content: space-between;
     margin-top: .3em;
-}
-
-.progressBar .progressBar-start, .progressBar .progressBar-end {
     font-size: .75em;
-}
-
-.progressBar .tooltip {
-    width: 100%;
-    position: relative;
-    display: flex;
-    font-size: .65em;
-    padding-bottom: 1em;
-}
-
-.progressBar .tooltip .left {
-    text-align: right;
-    transition: all 2s ease-out;
-    flex-basis: 0;
-    flex-grow: 0;
-}
-
-.progressBar .tooltip .right {
-    text-align: left;
-    border-left: 1px solid rgb(139, 139, 139);
-    flex-basis: 100%;
-    flex-grow: 100;
-}
-
-.progressBar .progressBar-days {
-    font-size: 1.3em;
-    white-space: nowrap;
-}
-
-.progressBar .tooltip .left .progressBar-percent,
-.progressBar .tooltip .left .progressBar-days,
-.progressBar .tooltip .left span {
-    margin-right: 10px;
-}
-
-.progressBar .tooltip .right .progressBar-percent,
-.progressBar .tooltip .right .progressBar-days,
-.progressBar .tooltip .right span {
-    margin-left: 10px;
 }
 
 
@@ -126,7 +120,7 @@
 /* Dispositivos small (telefones em modo paisagem, com 576px ou mais)*/
 @media (min-width: 576px) {
 
-    .progressBar .progressBar-days {
+    .progress-bar__days {
         font-size: 1.7em;
     }
 }

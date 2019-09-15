@@ -9,10 +9,10 @@ export default class Chronometer {
   init() {
     this.build();
     this.boxes = {};
-    this.boxes.seconds = this.container.querySelector('.countdown-seconds');
-    this.boxes.minutes = this.container.querySelector('.countdown-minutes');
-    this.boxes.hours = this.container.querySelector('.countdown-hours');
-    this.boxes.days = this.container.querySelector('.countdown-days');
+    this.boxes.seconds = this.container.querySelector('.digital-clock__box--seconds');
+    this.boxes.minutes = this.container.querySelector('.digital-clock__box--minutes');
+    this.boxes.hours = this.container.querySelector('.digital-clock__box--hours');
+    this.boxes.days = this.container.querySelector('.digital-clock__box--days');
 
     // Anima cada campo do contador na tela (dia, hora, minuto e segundo) a cada segundo
     setInterval(() => {
@@ -22,11 +22,11 @@ export default class Chronometer {
         if (+this.boxes[unit].getAttribute('data-time') !== value) {
           this.boxes[unit].setAttribute('data-time', value);
           this.boxes[unit].querySelector('span:first-child').innerText = String(value).padStart(2, '0');
-          this.boxes[unit].classList.add('animate');
+          this.boxes[unit].classList.add('digital-clock__box--animating');
 
           setTimeout(() => {
             this.boxes[unit].querySelector('span:last-child').innerText = String(value).padStart(2, '0');
-            this.boxes[unit].classList.remove('animate');
+            this.boxes[unit].classList.remove('digital-clock__box--animating');
           }, 700);
         }
       });
@@ -35,16 +35,16 @@ export default class Chronometer {
 
   createCountdownBox(classNumber) {
     const countdownBox = document.createElement('div');
-    countdownBox.classList.add('countdown-box', classNumber);
+    countdownBox.classList.add('digital-clock__box', classNumber);
     countdownBox.setAttribute('data-time', 0);
     this.container.appendChild(countdownBox);
 
     const countdownTrack = document.createElement('div');
-    countdownTrack.classList.add('countdown-track');
+    countdownTrack.classList.add('digital-clock__track');
     countdownBox.appendChild(countdownTrack);
 
     const countdownNumber = document.createElement('div');
-    countdownNumber.classList.add('countdown-number');
+    countdownNumber.classList.add('digital-clock__number');
     countdownTrack.appendChild(countdownNumber);
 
     const span1 = document.createElement('span');
@@ -60,17 +60,18 @@ export default class Chronometer {
 
   createDivider() {
     const divider = document.createElement('div');
-    divider.classList.add('countdown-divider');
+    divider.classList.add('digital-clock__divider');
     this.container.appendChild(divider);
   }
 
   build() {
-    this.createCountdownBox('countdown-days');
+    this.container.classList.add('digital-clock');
+    this.createCountdownBox('digital-clock__box--days');
     this.createDivider();
-    this.createCountdownBox('countdown-hours');
+    this.createCountdownBox('digital-clock__box--hours');
     this.createDivider();
-    this.createCountdownBox('countdown-minutes');
+    this.createCountdownBox('digital-clock__box--minutes');
     this.createDivider();
-    this.createCountdownBox('countdown-seconds');
+    this.createCountdownBox('digital-clock__box--seconds');
   }
 }

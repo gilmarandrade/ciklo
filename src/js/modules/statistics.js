@@ -1,8 +1,10 @@
+import Ciklo from "./Ciklo.js";
+
 // TODO: refatorar estatísticas para usar o toString()
 export default class Statistics {
-  constructor(counterContainer, timer) {
-    this.counterContainer = counterContainer;
-    this.timer = timer;
+  constructor(container, options) {
+    this.container = container;
+    this.timer = new Ciklo(options);
   }
 
   /**
@@ -11,7 +13,7 @@ export default class Statistics {
   init() {
     const toDays = this.timer.elapsed.toDays();
 
-    this.counterContainer.innerHTML = `{
+    this.container.innerHTML = `{
     _timestamp: ${this.timer.elapsed._timestamp}, 
     days: ${this.timer.elapsed.days}, 
     hours: ${this.timer.elapsed.hours}, 
@@ -38,7 +40,7 @@ export default class Statistics {
 
       if (elapsed != null) {
         const elapsedDays = elapsed.toDays();
-        this.counterContainer.innerHTML = `elapsed \n{
+        this.container.innerHTML = `elapsed \n{
         _timestamp: ${elapsed._timestamp}, 
         days: ${elapsed.days}, 
         hours: ${elapsed.hours}, 
@@ -53,7 +55,7 @@ export default class Statistics {
       }
       if (left != null) {
         const leftDays = left.toDays();
-        this.counterContainer.innerHTML
+        this.container.innerHTML
         += `remaining \n{
         _timestamp: ${left._timestamp}, 
         days: ${left.days}, 
@@ -67,7 +69,7 @@ export default class Statistics {
           seconds: ${leftDays.seconds}
         }\n}`;
       }
-      this.counterContainer.innerHTML += `\nwindow: ${window.innerWidth } x ${window.innerHeight}`;
+      this.container.innerHTML += `\nwindow: ${window.innerWidth } x ${window.innerHeight}`;
     }, 1000);
   }
 }

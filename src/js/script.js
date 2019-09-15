@@ -1,8 +1,10 @@
 import Ciklo from './modules/Ciklo.js';
 
 const tempoParaONatal = new Ciklo(
-  `12 September ${(new Date()).getFullYear() - 1} 23:59:59 GMT-0300`,
-  `15 September ${(new Date()).getFullYear()} 23:59:59 GMT-0300`,
+  {
+    startDate: `12 September ${(new Date()).getFullYear() - 1} 23:59:59 GMT-0300`,
+    endDate: `15 September ${(new Date()).getFullYear()} 23:59:59 GMT-0300`,
+  },
 );
 
 const start_countdowDisplayMilliseconds = document.querySelector('#start_countdowDisplayMilliseconds');

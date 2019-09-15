@@ -1,8 +1,9 @@
+import Ciklo from "./Ciklo.js";
+
 export default class Chronometer {
-  constructor(container, timer) {
+  constructor(container, options) {
     this.container = container;
-    // TODO o ciklo poderia ser criado internamente
-    this.timer = timer;
+    this.timer = new Ciklo(options);
   }
 
   init() {

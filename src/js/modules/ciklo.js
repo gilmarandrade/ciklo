@@ -6,17 +6,18 @@ import Timestamp from './Timestamp.js';
  */
 export default class Ciklo {
   /**
-   * Recebe duas strings representando as datas de inicio e fim de um intervalo (não importa a ordem).
-   * Pode receber apenas uma string, contendo uma data passada ou futura em relação ao momento atual.
+   * Recebe um objeto com duas strings (startDate, endDate) representando
+   * as datas de inicio e fim de um intervalo (não importa a ordem).
+   * Pode receber apenas uma das strings, contendo uma data passada ou futura
+   * em relação ao momento atual.
    * Se não receber nenhuma data, passa a considerar a data atual
-   * @param {String} string1 data
-   * @param {String} string2 data (opcional)
+   * @param {Object} options {starDate, endDate}
    */
-  constructor(string1, string2) {
-    if (string2) {
-      const date1 = new Date(string1);
-      const date2 = new Date(string2);
-      if (string1 && this.isValidDate(date1) && this.isValidDate(date2)) {
+  constructor({ startDate, endDate }) {
+    if (startDate && endDate) {
+      const date1 = new Date(startDate);
+      const date2 = new Date(endDate);
+      if (startDate && this.isValidDate(date1) && this.isValidDate(date2)) {
         if (date1.getTime() >= date2.getTime()) {
           this._startDate = date2;
           this._endDate = date1;
@@ -25,22 +26,23 @@ export default class Ciklo {
           this._endDate = date2;
         }
       }
-    } else if (string1) {
-      const date = new Date(string1);
-      const actual = this.actualDate;
-      if (string1 && this.isValidDate(date)) {
-        if (date.getTime() >= actual.getTime()) {
-          this._startDate = null;
-          this._endDate = date;
-        } else {
-          this._startDate = date;
-          this._endDate = null;
-        }
+    } else if (startDate) {
+      const date = new Date(startDate);
+      if (this.isValidDate(date)) {
+        this._startDate = date;
+        this._endDate = null;
       }
+    } else if (endDate) {
+      const date = new Date(endDate);
+      if (this.isValidDate(date)) {
+        this._startDate = null;
+        this._endDate = date;
+      }   
     } else {
       this._startDate = new Date();
       this._endDate = null;
     }
+    console.log(this);
     return this;
   }
 

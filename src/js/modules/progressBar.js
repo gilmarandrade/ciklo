@@ -1,8 +1,10 @@
+import Ciklo from "./Ciklo.js";
+
 // TODO renomear progressBar para progress bar
 export default class ProgressBar {
-  constructor(container, timer) {
+  constructor(container, options) {
     this.container = container;
-    this.timer = timer;
+    this.timer = new Ciklo(options);
   }
 
   /**

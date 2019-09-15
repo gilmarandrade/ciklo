@@ -1,7 +1,9 @@
+import Ciklo from "./Ciklo.js";
+
 export default class Countdown {
-  constructor(container, timer) {
+  constructor(container, options) {
     this.container = container;
-    this.timer = timer;
+    this.timer = new Ciklo(options);
   }
 
   /**

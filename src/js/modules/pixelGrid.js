@@ -1,7 +1,9 @@
+import Ciklo from "./Ciklo.js";
+
 export default class PixelGrid {
-  constructor(counterContainer, timer) {
-    this.counterContainer = counterContainer;
-    this.timer = timer;
+  constructor(container, options) {
+    this.container = container;
+    this.timer = new Ciklo(options);
   }
 
   /**
@@ -10,7 +12,7 @@ export default class PixelGrid {
   // TODO: refatorar este metodo
   init() {
     this.build();
-    const gridContainer = this.counterContainer.querySelector('.grid');
+    const gridContainer = this.container.querySelector('.grid');
 
     let elapsed = this.timer.elapsed.days;
     let left = this.timer.remaining.days;
@@ -30,8 +32,8 @@ export default class PixelGrid {
       left = this.timer.total.days;
     }
 
-    this.counterContainer.querySelector('.progressBar-start').innerHTML = this.timer.startDate.toLocaleDateString();
-    this.counterContainer.querySelector('.progressBar-end').innerHTML = this.timer.endDate.toLocaleDateString();
+    this.container.querySelector('.progressBar-start').innerHTML = this.timer.startDate.toLocaleDateString();
+    this.container.querySelector('.progressBar-end').innerHTML = this.timer.endDate.toLocaleDateString();
 
     for (let i = 0; i < elapsed; i++) {
       const ele = document.createElement('div');
@@ -57,14 +59,14 @@ export default class PixelGrid {
   build() {
     const start = document.createElement('span');
     start.classList.add('progressBar-start');
-    this.counterContainer.appendChild(start);
+    this.container.appendChild(start);
 
     const grid = document.createElement('div');
     grid.classList.add('grid');
-    this.counterContainer.appendChild(grid);
+    this.container.appendChild(grid);
 
     const end = document.createElement('span');
     end.classList.add('progressBar-end');
-    this.counterContainer.appendChild(end);
+    this.container.appendChild(end);
   }
 }

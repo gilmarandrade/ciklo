@@ -11,6 +11,7 @@ export default class ProgressBar {
  * @param {Timer} timer contador progressivo
  * @returns Retorna true para continuar a contagem, e false para parar
  */
+  // FIXME: refatorar e otimizar este método
   updateProgressBarView() {
     let percentage; let elapsed; let left;
 
@@ -73,9 +74,9 @@ export default class ProgressBar {
  * Atualiza a cada segundo
  */
   init() {
-    const counterContainer = document.querySelector('#progressBar');
-    counterContainer.querySelector('.progressBar-start').innerHTML = this.timer.startDate.toLocaleDateString();
-    counterContainer.querySelector('.progressBar-end').innerHTML = this.timer.endDate.toLocaleDateString();
+    this.build();
+    this.counterContainer.querySelector('.progressBar-start').innerHTML = this.timer.startDate.toLocaleDateString();
+    this.counterContainer.querySelector('.progressBar-end').innerHTML = this.timer.endDate.toLocaleDateString();
 
     let loop = true;
     const interval = setInterval(() => {
@@ -84,5 +85,73 @@ export default class ProgressBar {
         clearInterval(interval);
       }
     }, 1000);
+  }
+
+  createTooltip() {
+    const tooltip = document.createElement('div');
+    tooltip.classList.add('tooltip');
+    this.counterContainer.appendChild(tooltip);
+
+    const left = document.createElement('span');
+    left.classList.add('left');
+    tooltip.appendChild(left);
+
+    const percentLeft = document.createElement('span');
+    percentLeft.classList.add('progressBar-percent');
+    left.appendChild(percentLeft);
+
+    const daysLeft = document.createElement('h2');
+    daysLeft.classList.add('progressBar-days');
+    left.appendChild(daysLeft);
+
+    const decorridos = document.createElement('span');
+    left.appendChild(decorridos);
+    const text = document.createTextNode('decorridos');
+    decorridos.appendChild(text);
+
+
+    const right = document.createElement('span');
+    right.classList.add('right');
+    tooltip.appendChild(right);
+
+    const percentRight = document.createElement('span');
+    percentRight.classList.add('progressBar-percent');
+    right.appendChild(percentRight);
+
+    const daysRight = document.createElement('h2');
+    daysRight.classList.add('progressBar-days');
+    right.appendChild(daysRight);
+
+    const restantes = document.createElement('span');
+    right.appendChild(restantes);
+    const text2 = document.createTextNode('restantes');
+    restantes.appendChild(text2);
+  }
+
+  createBar() {
+    const track = document.createElement('div');
+    track.classList.add('progressBar-track');
+    this.counterContainer.appendChild(track);
+
+    const bar = document.createElement('div');
+    bar.classList.add('progressBar-bar', 'stripes');
+    track.appendChild(bar);
+
+    const hint = document.createElement('div');
+    hint.classList.add('progressBar-hint');
+    this.counterContainer.appendChild(hint);
+
+    const start = document.createElement('div');
+    start.classList.add('progressBar-start');
+    hint.appendChild(start);
+
+    const end = document.createElement('div');
+    end.classList.add('progressBar-end');
+    hint.appendChild(end);
+  }
+
+  build() {
+    this.createTooltip();
+    this.createBar();
   }
 }

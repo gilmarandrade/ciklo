@@ -5,7 +5,6 @@
  * para outros formatos (como dias, horas, minutos e segundos).
  */
 export default class Timestamp {
-
   /**
    * Recebe um timestamp (milissegundos)
    * @param {number} timestamp representação numérica do intervalo (em milissegundos)
@@ -54,7 +53,7 @@ export default class Timestamp {
    * @returns {Object} Converte o timestamp exatamente em dias, horas, minutos e segundos
    */
   toDays() {
-    const days = this.days;
+    const { days } = this;
     const hours = this.hours % 24;
     const minutes = this.minutes % 60;
     const seconds = this.seconds % 60;
@@ -72,7 +71,7 @@ export default class Timestamp {
    */
   toHours() {
     const days = 0;
-    const hours = this.hours;
+    const { hours } = this;
     const minutes = this.minutes % 60;
     const seconds = this.seconds % 60;
 
@@ -90,7 +89,7 @@ export default class Timestamp {
   toMinutes() {
     const days = 0;
     const hours = 0;
-    const minutes = this.minutes;
+    const { minutes } = this;
     const seconds = this.seconds % 60;
 
     return {
@@ -108,7 +107,7 @@ export default class Timestamp {
     const days = 0;
     const hours = 0;
     const minutes = 0;
-    const seconds = this.seconds;
+    const { seconds } = this;
 
     return {
       days,

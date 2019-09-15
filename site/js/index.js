@@ -7,52 +7,52 @@ const tempoParaONatal = new Ciklo(
   },
 );
 
-const start_countdowDisplayMilliseconds = document.querySelector('#start_countdowDisplayMilliseconds');
-const start_countdowDisplaySeconds = document.querySelector('#start_countdowDisplaySeconds');
-const start_countdowDisplayMinutes = document.querySelector('#start_countdowDisplayMinutes');
-const start_countdowDisplayHours = document.querySelector('#start_countdowDisplayHours');
-const start_countdowDisplayDays = document.querySelector('#start_countdowDisplayDays');
+const startCountdowDisplayMilliseconds = document.querySelector('#start_countdowDisplayMilliseconds');
+const startCountdowDisplaySeconds = document.querySelector('#start_countdowDisplaySeconds');
+const startCountdowDisplayMinutes = document.querySelector('#start_countdowDisplayMinutes');
+const startCountdowDisplayHours = document.querySelector('#start_countdowDisplayHours');
+const startCountdowDisplayDays = document.querySelector('#start_countdowDisplayDays');
 
-const end_countdowDisplayMilliseconds = document.querySelector('#end_countdowDisplayMilliseconds');
-const end_countdowDisplaySeconds = document.querySelector('#end_countdowDisplaySeconds');
-const end_countdowDisplayMinutes = document.querySelector('#end_countdowDisplayMinutes');
-const end_countdowDisplayHours = document.querySelector('#end_countdowDisplayHours');
-const end_countdowDisplayDays = document.querySelector('#end_countdowDisplayDays');
+const endCountdowDisplayMilliseconds = document.querySelector('#end_countdowDisplayMilliseconds');
+const endCountdowDisplaySeconds = document.querySelector('#end_countdowDisplaySeconds');
+const endCountdowDisplayMinutes = document.querySelector('#end_countdowDisplayMinutes');
+const endCountdowDisplayHours = document.querySelector('#end_countdowDisplayHours');
+const endCountdowDisplayDays = document.querySelector('#end_countdowDisplayDays');
 
 document.querySelector('#startDate').innerHTML = tempoParaONatal.startDate.toLocaleDateString();
 document.querySelector('#endDate').innerHTML = tempoParaONatal.endDate.toLocaleDateString();
 
 
 setInterval(() => {
-  start_countdowDisplayMilliseconds.innerHTML = `
+  startCountdowDisplayMilliseconds.innerHTML = `
         ${tempoParaONatal.elapsed.milliseconds} timestamp (milliseconds)
     `;
-  end_countdowDisplayMilliseconds.innerHTML = `
+  endCountdowDisplayMilliseconds.innerHTML = `
         ${tempoParaONatal.remaining.milliseconds} timestamp (milliseconds)
     `;
 }, 1000);
 
 setInterval(() => {
   const start = tempoParaONatal.elapsed.toSeconds();
-  start_countdowDisplaySeconds.innerHTML = `
+  startCountdowDisplaySeconds.innerHTML = `
         ${start.seconds} s
     `;
 
   const end = tempoParaONatal.remaining.toSeconds();
-  end_countdowDisplaySeconds.innerHTML = `
+  endCountdowDisplaySeconds.innerHTML = `
         ${end.seconds} s
     `;
 }, 1000);
 
 setInterval(() => {
   const start = tempoParaONatal.elapsed.toMinutes();
-  start_countdowDisplayMinutes.innerHTML = `
+  startCountdowDisplayMinutes.innerHTML = `
         ${start.minutes} m
         ${start.seconds} s
     `;
 
   const end = tempoParaONatal.remaining.toMinutes();
-  end_countdowDisplayMinutes.innerHTML = `
+  endCountdowDisplayMinutes.innerHTML = `
         ${end.minutes} m
         ${end.seconds} s
     `;
@@ -60,14 +60,14 @@ setInterval(() => {
 
 setInterval(() => {
   const start = tempoParaONatal.elapsed.toHours();
-  start_countdowDisplayHours.innerHTML = `
+  startCountdowDisplayHours.innerHTML = `
         ${start.hours} h
         ${start.minutes} m
         ${start.seconds} s
     `;
 
   const end = tempoParaONatal.remaining.toHours();
-  end_countdowDisplayHours.innerHTML = `
+  endCountdowDisplayHours.innerHTML = `
         ${end.hours} h
         ${end.minutes} m
         ${end.seconds} s
@@ -76,7 +76,7 @@ setInterval(() => {
 
 setInterval(() => {
   const start = tempoParaONatal.elapsed.toDays();
-  start_countdowDisplayDays.innerHTML = `
+  startCountdowDisplayDays.innerHTML = `
         ${start.days} days
         ${start.hours} h
         ${start.minutes} m
@@ -84,7 +84,7 @@ setInterval(() => {
     `;
 
   const end = tempoParaONatal.remaining.toDays();
-  end_countdowDisplayDays.innerHTML = `
+  endCountdowDisplayDays.innerHTML = `
         ${end.days} days
         ${end.hours} h
         ${end.minutes} m

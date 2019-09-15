@@ -1,4 +1,4 @@
-import Ciklo from "./Ciklo";
+import Ciklo from './Ciklo';
 
 export default class Chronometer {
   constructor(container, options) {

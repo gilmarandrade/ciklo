@@ -1,4 +1,4 @@
-import Ciklo from "./Ciklo";
+import Ciklo from './Ciklo';
 
 export default class PixelGrid {
   constructor(container, options) {
@@ -17,7 +17,7 @@ export default class PixelGrid {
     let elapsed = this.timer.elapsed.days;
     let left = this.timer.remaining.days;
 
-    if (this.timer.endDate.getTime() < this.timer.actualDate.getTime()) { 
+    if (this.timer.endDate.getTime() < this.timer.actualDate.getTime()) {
       // data final já passou, ou tempo esgotado
       console.log('data final ja passou / tempo esgotado!');
       elapsed = this.timer.total.days;
@@ -25,7 +25,7 @@ export default class PixelGrid {
       this.container.classList.add('pixel-grid--ended');
     }
 
-    if (this.timer.actualDate.getTime() < this.timer.startDate.getTime()) { 
+    if (this.timer.actualDate.getTime() < this.timer.startDate.getTime()) {
       // data inicial ainda não chegou
       console.log('data inicial não chegou');
       elapsed = 0;
@@ -35,7 +35,7 @@ export default class PixelGrid {
     this.container.querySelector('.pixel-grid__start-date').innerHTML = this.timer.startDate.toLocaleDateString();
     this.container.querySelector('.pixel-grid__end-date').innerHTML = this.timer.endDate.toLocaleDateString();
 
-    for (let i = 0; i < elapsed; i++) {
+    for (let i = 0; i < elapsed; i += 1) {
       const ele = document.createElement('div');
       ele.classList.add('pixel-grid__pixel', 'pixel-grid__pixel--elapsed');
       gridContainer.append(ele);
@@ -44,15 +44,15 @@ export default class PixelGrid {
 
     const ele = document.createElement('div');
     ele.classList.add('pixel-grid__pixel');
-    if (elapsed != 0) {
+    if (elapsed !== 0) {
       ele.classList.add('pixel-grid__pixel--today');
     }
     gridContainer.append(ele);
 
-    for (let i = 0; i < left - 1; i++) {
-      const ele = document.createElement('div');
-      ele.classList.add('pixel-grid__pixel');
-      gridContainer.append(ele);
+    for (let i = 0; i < left - 1; i += 1) {
+      const element = document.createElement('div');
+      element.classList.add('pixel-grid__pixel');
+      gridContainer.append(element);
     }
   }
 

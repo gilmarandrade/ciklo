@@ -1,4 +1,4 @@
-import Ciklo from "./Ciklo";
+import Ciklo from './Ciklo';
 
 // TODO: refatorar estatísticas para usar o toString()
 export default class Statistics {
@@ -69,7 +69,7 @@ export default class Statistics {
           seconds: ${leftDays.seconds}
         }\n}`;
       }
-      this.container.innerHTML += `\nwindow: ${window.innerWidth } x ${window.innerHeight}`;
+      this.container.innerHTML += `\nwindow: ${window.innerWidth} x ${window.innerHeight}`;
     }, 1000);
   }
 }

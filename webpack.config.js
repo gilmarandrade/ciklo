@@ -1,5 +1,6 @@
 // https://www.thebasement.be/working-with-babel-7-and-webpack/
 const path = require('path');
+const loaders = require('./webpack-loaders');
 
 module.exports = {
   entry: {
@@ -10,17 +11,14 @@ module.exports = {
     pixelGrid: './site/js/pixelGrid.js',
     tudoJunto: './site/js/tudoJunto.js',
   },
+  module: {
+    rules: [
+      loaders.JSLoader,
+      loaders.ESLintLoader,
+    ],
+  },
   output: {
     filename: '[name].min.js',
     path: path.resolve(__dirname, './dist'),
-  },
-  module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader',
-      },
-    }],
   },
 };

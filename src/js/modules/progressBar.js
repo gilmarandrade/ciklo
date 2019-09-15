@@ -1,4 +1,4 @@
-import Ciklo from "./Ciklo";
+import Ciklo from './Ciklo';
 
 // TODO renomear progress-bar para progress bar
 export default class ProgressBar {
@@ -22,7 +22,7 @@ export default class ProgressBar {
       this.container.classList.add('progress-bar--ended');
       this.container.querySelector('.progress-bar__clock-elapsed .progress-bar__percentage').innerHTML = '100.0000000000000000%';
       this.container.querySelector('.progress-bar__clock-remaining .progress-bar__percentage').innerHTML = '-0.0000000000000000%';
-      const elapsed = this.timer.total.toDays();
+      elapsed = this.timer.total.toDays();
       this.container.querySelector('.progress-bar__clock-elapsed .progress-bar__days').innerHTML = `${elapsed.days}d ${elapsed.hours}:${elapsed.minutes}:${elapsed.seconds}`;
       this.container.querySelector('.progress-bar__clock-remaining .progress-bar__days').innerHTML = '-0d';
       this.container.querySelector('.progress-bar__progression').style.width = '100%';
@@ -40,7 +40,7 @@ export default class ProgressBar {
       this.container.querySelector('.progress-bar__clock-elapsed .progress-bar__percentage').innerHTML = '0.0000000000000000%';
       this.container.querySelector('.progress-bar__clock-remaining .progress-bar__percentage').innerHTML = '-100.0000000000000000%';
       this.container.querySelector('.progress-bar__clock-elapsed .progress-bar__days').innerHTML = '0d';
-      const left = this.timer.total.toDays();
+      left = this.timer.total.toDays();
       this.container.querySelector('.progress-bar__clock-remaining .progress-bar__days').innerHTML = `-${left.days}d ${left.hours}:${left.minutes}:${left.seconds}`;
       this.container.querySelector('.progress-bar__progression').style.width = '0%';
 

@@ -37,7 +37,7 @@ export default class Ciklo {
       if (this.isValidDate(date)) {
         this._startDate = null;
         this._endDate = date;
-      }   
+      }
     } else {
       this._startDate = new Date();
       this._endDate = null;
@@ -51,7 +51,7 @@ export default class Ciklo {
    * @param {Date} d verifica se uma data é válida
    */
   isValidDate(d) {
-    return d instanceof Date && !isNaN(d);
+    return d instanceof Date && !Number.isNaN(d);
   }
 
   /**
@@ -99,7 +99,7 @@ export default class Ciklo {
   }
 
   /**
-   * @returns {Timestamp} Retorna um Timestamp contendo a diferença entre a data de término futuro e a data atual 
+   * @returns {Timestamp} Retorna um Timestamp contendo a diferença entre a data de término futuro e a data atual
    */
   get remaining() {
     if (this.endDate && this.endDate > this.actualDate && this.startDate < this.actualDate) {

@@ -2,6 +2,7 @@ import Ciklo from '../../src/js/modules/Ciklo';
 import UrlHelper from '../../src/js/utils/UrlHelper';
 import Chronometer from '../../src/js/modules/Chronometer';
 import Countdown from '../../src/js/modules/Countdown';
+import '../../src/css/style.css';
 
 const urlHelper = new UrlHelper();
 const { targetDate } = urlHelper.params;

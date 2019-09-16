@@ -3,6 +3,7 @@ import UrlHelper from '../../src/js/utils/UrlHelper';
 import ProgressBar from '../../src/js/modules/ProgressBar';
 import PixelGrid from '../../src/js/modules/PixelGrid';
 import Statistics from '../../src/js/modules/Statistics';
+import '../../src/css/style.css';
 
 const urlHelper = new UrlHelper();
 const { startDate, endDate } = urlHelper.params;

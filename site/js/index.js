@@ -1,4 +1,5 @@
 import Ciklo from '../../src/js/modules/Ciklo';
+import '../../src/css/style.css';
 
 const tempoParaONatal = new Ciklo(
   {

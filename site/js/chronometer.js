@@ -1,4 +1,5 @@
 import Chronometer from '../../src/js/modules/Chronometer';
+import '../../src/css/style.css';
 
 const chronometer = new Chronometer(
   document.querySelector('#progressive'),

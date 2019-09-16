@@ -15,9 +15,9 @@
     padding-bottom: 1em;
 }
 
-.progress-bar__clock {
+/* .progress-bar__clock {
 
-}
+} */
 
 .progress-bar__clock--elapsed {
     text-align: right;
@@ -126,16 +126,16 @@
 }
 
 /* Dispositivos médios (tablets com 768px ou mais)*/
-@media (min-width: 768px) { 
+/* @media (min-width: 768px) { 
 
- }
+} */
 
 /* Dispositivos large (desktops com 992px ou mais)*/
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
 
-}
+} */
 
 /* Dispositivos extra large (desktops grandes com 1200px ou mais)*/
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
 
-}
+} */

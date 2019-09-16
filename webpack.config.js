@@ -1,4 +1,6 @@
 // https://www.thebasement.be/working-with-babel-7-and-webpack/
+// https://medium.com/@jontorrado/working-with-webpack-4-es6-postcss-with-preset-env-and-more-93b3d77db7b2
+
 const path = require('path');
 const loaders = require('./webpack-loaders');
 const plugins = require('./webpack-plugins');
@@ -20,6 +22,7 @@ module.exports = {
     ],
   },
   plugins: [
+    plugins.StyleLintPlugin,
     plugins.MiniCssExtractPlugin,
   ],
   output: {

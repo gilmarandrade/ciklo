@@ -26,13 +26,13 @@ export default class Ciklo {
           this._endDate = date2;
         }
       }
-    } else if (startDate) {
+    } else if (startDate) { // FIXME: não está verificando se a data de inicio é maior ou menor que a data atual
       const date = new Date(startDate);
       if (this.isValidDate(date)) {
         this._startDate = date;
         this._endDate = null;
       }
-    } else if (endDate) {
+    } else if (endDate) { // FIXME: não está verificando se a data de fim é maior ou menor que a data atual
       const date = new Date(endDate);
       if (this.isValidDate(date)) {
         this._startDate = null;

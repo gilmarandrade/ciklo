@@ -3,8 +3,9 @@ import '../../src/css/style.css';
 
 const tempoParaONatal = new Ciklo(
   {
+    // TODO: não funciona se o mês e dia forem fixos, eles também devem ser dinâmicos como o ano
     startDate: `12 September ${(new Date()).getFullYear() - 1} 23:59:59 GMT-0300`,
-    endDate: `15 September ${(new Date()).getFullYear()} 23:59:59 GMT-0300`,
+    endDate: `30 September ${(new Date()).getFullYear()} 23:59:59 GMT-0300`,
   },
 );
 
@@ -20,8 +21,8 @@ const endCountdowDisplayMinutes = document.querySelector('#end_countdowDisplayMi
 const endCountdowDisplayHours = document.querySelector('#end_countdowDisplayHours');
 const endCountdowDisplayDays = document.querySelector('#end_countdowDisplayDays');
 
-document.querySelector('#startDate').innerHTML = tempoParaONatal.startDate.toLocaleDateString();
-document.querySelector('#endDate').innerHTML = tempoParaONatal.endDate.toLocaleDateString();
+// document.querySelector('#startDate').innerHTML = tempoParaONatal.startDate.toLocaleDateString();
+// document.querySelector('#endDate').innerHTML = tempoParaONatal.endDate.toLocaleDateString();
 
 
 setInterval(() => {

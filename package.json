@@ -49,7 +49,7 @@
     "stylelint": "^11.0.0",
     "stylelint-webpack-plugin": "^0.10.5",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "autoprefixer": "^9.6.1",
